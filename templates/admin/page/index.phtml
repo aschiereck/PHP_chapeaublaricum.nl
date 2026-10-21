@@ -1,0 +1,70 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ * @var \App\Model\Page[] $pages
+ */
+
+$this->viewModel->title = 'Pagina´s';
+$this->viewModel->menu->setActive(\App\View\Admin\Model\Menu::MENU_CONTENT_PAGE);
+?>
+<div class="row">
+    <div class="col-md-12 col-lg-9">
+        <!-- Add btn -->
+        <div class="add-btn">
+            <div class="row">
+                <div class="col-md-5">
+                    <a href="<?php echo $this->adminUrl(\App\Action\Admin\Page\CreateAction::ROUTE) ?>" class="custom-btn add-form-control">
+                        <span><?php echo $this->__('Pagina aanmaken') ?></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Content inner -->
+        <div class="content-inner">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th><?php echo $this->__('Naam') ?></th>
+                    <th><?php echo $this->__('Url') ?></th>
+                    <th><?php echo $this->__('SEO') ?></th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach($pages as $page) { ?>
+                    <tr>
+                        <td><?php echo $page->getName(); ?></td>
+                        <td>
+                            <?php echo $page->getUrl() ?>
+                        </td>
+                        <td>
+                            <?php
+                                switch($page->getSeoCompleteness())
+                                {
+                                    case \App\Model\SeoCompleteness::GOOD:
+                                        echo '<span class="icon-smile"></span>';
+                                        break;
+                                    case \App\Model\SeoCompleteness::OK:
+                                        echo '<span class="icon-neutral"></span>';
+                                        break;
+                                    case \App\Model\SeoCompleteness::BAD:
+                                        echo '<span class="icon-sad"></span>';
+                                        break;
+                                }
+                            ?>
+                        </td>
+                        <td>
+                            <div class="icon-block">
+                                <a href="<?php echo $this->adminUrl(\App\Action\Admin\Page\EditAction::ROUTE, ['id'=>$page->getId()]) ?>" class="icon-settings"></a>
+                                <a href="<?php echo $this->adminUrl(\App\Action\Admin\Page\DeleteAction::ROUTE, ['id'=>$page->getId()]) ?>" class="icon-rubbish"></a>
+                            </div>
+                        </td>
+                    </tr>
+                <?php } ?>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+

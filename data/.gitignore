@@ -1,0 +1,5 @@
+cache
+logs/*.log
+license
+public_key.pub
+*.mo

@@ -1,0 +1,201 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ * @var \App\Model\PhotoAlbum $photoAlbum
+ * @var array $invalidFields
+ */
+
+$this->Form()->setValidationErrors($invalidFields);
+$this->viewModel->title = 'Album aanpassen';
+$this->viewModel->menu->setActive(\App\View\Admin\Model\Menu::MENU_MODULE_PHOTO_ALBUMS);
+?>
+<div class="row">
+    <div class="col-md-12 col-lg-9">
+
+        <form method="post">
+
+            <div class="content-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php echo $this->Form()->text('name', $this->__('Naam'), $photoAlbum->getName(), true);  ?>
+                    </div>
+                </div>
+            </div>
+
+            <section id="file-upload">
+                <!-- The fileinput-button span is used to style the file input field as button -->
+                <span class="btn btn-success fileinput-button">
+                    <div class="button example"><?php echo $this->__('Afbeeldingen toevoegen') ?></div>
+                        <!-- The file input field used as target for the file upload widget -->
+                    <input id="fileupload" type="file" name="files[]" multiple>
+                </span>
+
+                <br>
+                <br>
+                <!-- The global progress bar -->
+                <div id="progress" class="progress">
+                    <div class="progress-bar progress-bar-success"></div>
+                </div>
+                <!-- The container for the uploaded files -->
+                <div id="uploaded-files" class="files"></div>
+            </section>
+
+            <div class="content-inner">
+                <div id="overview" ng-app="photoAlbumApp" ng-controller="photoController">
+
+                    <div class="photo sortable-chosen" ng-repeat="photo in photos | orderBy: 'position'" data-id="{{ photo.id }}" data-position="{{ photo.position }}">
+                        <div class="image">
+                            <a href="#" class="icon-rubbish remove-icon" ng-click="remove(photo.id)"></a>
+                            <a href="#" class="icon-move move-icon"></a>
+                            <img src="{{ photo.url }}">
+                        </div>
+                        <div class="input">
+                            <input type="text" class="form-control" value="{{ photo.name }}" name="photo[{{ photo.id }}]">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- Save button -->
+            <div class="save-btn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="custom-btn btn-primary">
+                            <?php echo $this->__('Opslaan') ?>
+                        </button>
+                        <a href="<?php echo $this->adminUrl(\App\Action\Admin\PhotoAlbum\IndexAction::ROUTE) ?>" class="custom-btn btn-gray">
+                            <?php echo $this->__('Annuleren') ?>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </form>
+    </div>
+</div>
+<script src="/assets/admin/js/photo-album/photoController.js"></script>
+<script src="/assets/admin/js/photo-album/photoService.js"></script>
+<script src="/assets/admin/js/photo-album/app.js"></script>
+<script src="/assets/admin/js/image-upload/jquery.ui.widget.js"></script>
+<script src="/assets/admin/js/image-upload/jquery.iframe-transport.js"></script>
+<script src="/assets/admin/js/image-upload/jquery.fileupload.js"></script>
+<link rel="stylesheet" href="/assets/admin/css/image-upload/jquery.fileupload.css" />
+
+
+<script>
+    /**
+     * Set photo data
+     */
+    $(function() {
+        var scope = angular.element(document.getElementById('overview')).scope();
+
+        <?php foreach($photoAlbum->getPhotos() as $photo) { ?>
+            <?php if($photo->isActive()) { ?>
+                scope.add(
+                    '<?php echo $photo->getId() ?>',
+                    '<?php echo $this->image()->getExactResizeUrl($photo->getPhotoImage(),150,150); ?>',
+                    '<?php echo $photo->getName() ?>',
+                    '<?php echo $photo->getPosition() ?>'
+                );
+            <?php } ?>
+        <?php } ?>
+    });
+
+    /**
+     * Sorting of album
+     */
+    function updateSorting(){
+
+        //Create closure for list
+        var sortableListHandler = function(list) {
+            Sortable.create(list, {
+                animation: 500,
+                handle: ".icon-move",
+                chosenClass: "sortable-chosen",
+                onEnd: function (evt) {
+                    var scope = angular.element(document.getElementById('overview')).scope();
+                    var newOrder = [];
+                    $('#overview .photo').each(function(){
+                        newOrder.push($(this).attr('data-id'));
+                    });
+                    scope.updatePositions(newOrder);
+                }
+            });
+        };
+        sortableListHandler( document.getElementById('overview'));
+    }
+
+    $(function(){
+        updateSorting();
+    });
+
+    /**
+     * Image uploader
+     */
+    $(function () {
+        var url = '<?php echo $this->adminUrl(\App\Action\Admin\PhotoAlbum\UploadPhotosAction::ROUTE, ['id'=>$photoAlbum->getId()]) ?>';
+        var totalFiles = 0;
+        var filesDone = 0;
+        var uploadProgress = 0;
+
+        var updateProgress = function(){
+            var processProgress = parseInt(filesDone / totalFiles * 100, 10) * 0.5;
+            var percentage = (uploadProgress + processProgress);
+
+            if(percentage > 0)
+            {
+                $('#progress').show();
+
+                $('#progress .progress-bar').css(
+                    'width',
+                    percentage + '%'
+                );
+            }
+        };
+
+        $('#fileupload').fileupload({
+            url: url,
+            dataType: 'json',
+            submit : function(e, data){
+                totalFiles++;
+            },
+            done: function (e, data) {
+                $.each(data.result.files, function (index, file) {
+                    if(file.error)
+                    {
+                        $('<p/>').html(file.name + ' - ' + file.error).addClass('error-message').appendTo('#uploaded-files');
+                    }
+                    else
+                    {
+                        $('<p/>').html(file.name).appendTo('#uploaded-files');
+                    }
+
+                    var scope = angular.element(document.getElementById('overview')).scope();
+                    scope.add(
+                        file.id,
+                        file.url,
+                        file.label,
+                        file.position
+                    );
+                });
+                filesDone++;
+                updateProgress();
+            },
+            fail: function(e, data){
+                alert('Er is fout ontstaan: ' + data.errorThrown.message);
+                filesDone++;
+                updateProgress();
+            },
+            progressall: function (e, data) {
+                uploadProgress = parseInt(data.loaded / data.total * 100, 10) * 0.5;
+                updateProgress();
+
+            }
+        }).prop('disabled', !$.support.fileInput)
+            .parent().addClass($.support.fileInput ? undefined : 'disabled');
+    });
+</script>

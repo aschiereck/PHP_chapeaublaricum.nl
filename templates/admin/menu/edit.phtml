@@ -1,0 +1,45 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ * @var \App\Model\MenuItem $menuItem
+ * @var array $invalidFields
+ * @var array $linkTypeOptions
+ * @var \App\Model\Page[] $pages
+ * @var \App\Model\MenuItem[] $rootMenuItems
+ */
+
+$this->viewModel->title = 'Menu';
+$this->viewModel->menu->setActive(\App\View\Admin\Model\Menu::MENU_CONTENT_MENU);
+$this->Form()->setValidationErrors($invalidFields);
+?>
+<div class="row">
+    <div class="col-md-12 col-lg-9">
+
+        <form method="post">
+
+            <div class="content-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php echo $this->Form()->text('name', $this->__('Naam'), $menuItem->getName(), true);  ?>
+                    </div>
+                    <div class="col-md-12">
+                        <?php echo $this->Form()->select('parent', $this->__('Bovenliggend menu item'), $rootMenuItems, ($menuItem->getParent() ? $menuItem->getParent()->getId() : 0));  ?>
+                    </div>
+
+                    <?php echo $this->render('admin::elements/link-form', ['pages' => $pages, 'link'=>$menuItem->getLink()]); ?>
+                </div>
+            </div>
+
+            <!-- Save button -->
+            <div class="save-btn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="custom-btn btn-primary"><?php echo $this->__('Opslaan') ?></button>
+                        <a href="<?php echo $this->adminUrl(\App\Action\Admin\Menu\IndexAction::ROUTE) ?>" class="custom-btn btn-gray"><?php echo $this->__('Annuleren') ?></a>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

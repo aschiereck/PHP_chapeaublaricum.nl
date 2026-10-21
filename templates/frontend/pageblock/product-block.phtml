@@ -1,0 +1,14 @@
+<?php
+/**
+ * @var \App\View\Frontend\Model\View $this
+ * @var \App\Model\PageBlock\PageBlockCustomTemplate $block
+ */
+?>
+
+<a href="<?php echo $this->link()->link($block->getLink()) ?>" class="project text-center">
+    <img src="<?php echo $this->image()->getExactResizeUrl($block->getImage(), 350, 250); ?>"/>
+    <div class="content">
+        <h4 class="title title-secondary"><?php echo htmlentities($block->getText()); ?></h4>
+        <p><?php echo $block->getContent() ?></p>
+    </div>
+</a>

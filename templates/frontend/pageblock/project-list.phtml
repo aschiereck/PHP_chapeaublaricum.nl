@@ -1,0 +1,28 @@
+<?php
+/**
+ * @var \App\View\Frontend\Model\View $this
+ * @var \App\Model\PageBlock\PageBlockProjectList $block
+ */
+
+$projects = $block->isShowAllProjects()
+    ? $this->viewModel->site->getProjects()
+    : $block->getProjects();
+$chunks = array_chunk($projects, 3);
+?>
+
+
+<?php foreach($chunks as $chunk) { ?>
+    <div class="row">
+        <?php foreach($chunk as $project) { ?>
+            <div class="col-sm-12 col-md-4 text-center">
+                <a href="<?php echo $this->link()->project($project) ?>" class="project">
+                    <img src="<?php echo $this->image()->getExactResizeUrl($project->getImage(), 350, 250); ?>"/>
+                    <div class="content">
+                        <h4 class="title title-secondary"><?php echo htmlentities($project->getName()) ?></h4>
+                        <p class="text text-primary"><?php echo nl2br(htmlentities($project->getSummary())); ?></p>
+                    </div>
+                </a>
+            </div>
+        <?php } ?>
+    </div>
+<?php } ?>

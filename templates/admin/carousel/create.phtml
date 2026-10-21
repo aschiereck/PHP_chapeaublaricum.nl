@@ -1,0 +1,36 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ * @var \App\Model\Carousel $carousel
+ * @var array $invalidFields
+ */
+$this->Form()->setValidationErrors($invalidFields);
+$this->viewModel->title =  'Carousel aanmaken';
+$this->viewModel->menu->setActive(\App\View\Admin\Model\Menu::MENU_MODULE_CAROUSEL);
+?>
+<div class="row">
+    <div class="col-md-12 col-lg-9">
+
+        <form method="post">
+
+            <div class="content-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php echo $this->Form()->text('name', $this->__('Naam'), $carousel->getName(), true);  ?>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Save button -->
+            <div class="save-btn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="custom-btn btn-primary"><?php echo $this->__('Opslaan') ?></button>
+                        <a href="<?php echo $this->adminUrl(\App\Action\Admin\Carousel\IndexAction::ROUTE) ?>" class="custom-btn btn-gray"><?php echo $this->__('Annuleren') ?></a>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

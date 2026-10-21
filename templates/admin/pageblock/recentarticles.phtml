@@ -1,0 +1,42 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ * @var \App\Model\PageBlock\PageBlockRecentArticles $pageBlock
+ * @var array $invalidFields
+ */
+$this->Form()->setValidationErrors($invalidFields);
+?>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="module-detail module-<?php echo \App\Model\Module::ARTICLE ?>-bg">
+            <h2><?php echo $this->__('Recente berichten') ?></h2>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+
+        <form method="post" target="pageblock-uploader" action="<?php echo $this->viewModel->currentUrl ?>">
+
+            <div class="content-inner">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <?php echo $this->Form()->number('numberOfArticles', $this->__('Aantal berichten'), $pageBlock->getNumberOfArticles(), true);  ?>
+                    </div>
+                </div>
+            </div>
+            <!-- Save button -->
+            <div class="save-btn">
+                <div class="row">
+                    <div class="col-sm-7 col-sm-offset-5">
+                        <button data-button="submit" class="custom-btn btn-primary"><?php echo $this->__('Opslaan') ?></button>
+                        <button data-button="close" class="custom-btn btn-gray"><?php echo $this->__('Annuleren') ?></button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

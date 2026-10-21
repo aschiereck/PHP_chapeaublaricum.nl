@@ -1,0 +1,45 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ */
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name='robots' content='noindex,nofollow' />
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE"/>
+    <meta http-equiv="PRAGMA" content="NO-CACHE"/>
+    <title>Login</title>
+
+    <link rel="stylesheet" href="/assets/admin/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/admin/css/non-bootstrap.css" />
+    <link rel="stylesheet" href="/assets/admin/css/custom-checkbox/awesome-bootstrap-checkbox.css" />
+    <link rel="stylesheet" href="<?php echo $this->url(\App\Action\Admin\Branding\CssAction::ROUTE, ['siteId' => $this->viewModel->site->getId()]); ?>" />
+
+    <!-- Google webfont: Dosis -->
+    <link href="https://fonts.googleapis.com/css?family=Dosis:300,400,600,700" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="login-screen">
+
+<!-- Login wrapper -->
+<div id="login-wrapper">
+    <div class="container">
+        <?php echo $this->content ?>
+    </div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/assets/admin/js/bootstrap.min.js"></script>
+</body>
+</html>

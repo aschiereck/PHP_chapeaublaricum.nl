@@ -1,0 +1,50 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ * @var \App\Service\GoogleAnalytics\User $user
+ * @var array $profileOptions
+ * @var string $activeProfileId
+ */
+$this->viewModel->title = 'Google analytics';
+$this->viewModel->menu->setActive(\App\View\Admin\Model\Menu::MENU_SETTINGS_ANALYTICS);
+?>
+<div class="row">
+    <div class="col-md-12 col-lg-9">
+
+        <?php if($user) { ?>
+            <form method="post">
+
+                <div class="content-inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label><?php echo $this->__('Ingelogd als') ?></label><br/>
+                                <?php echo $user->name ?>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <?php echo $this->Form()->select('profileId', 'Gekoppeld analytics account', $profileOptions, $activeProfileId, true); ?>
+                        </div>
+                    </div>
+                </div>
+                <!-- Save button -->
+                <div class="save-btn">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="custom-btn btn-primary"><?php echo $this->__('Opslaan'); ?></button>
+                            <a href="<?php echo $this->adminUrl(\App\Action\Admin\GoogleAnalytics\ClearAction::ROUTE) ?>" onclick="return confirm('<?php echo $this->__('Weet u zeker dat u de gegevens wil verwijderen?') ?>');" class="custom-btn btn-gray" id="deleteAccount">
+                                <?php echo $this->__('Account gegevens wissen'); ?>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+        <?php } else { ?>
+
+            <a href="<?php echo $this->adminUrl(\App\Action\Admin\GoogleAnalytics\GetCodeAction::ROUTE) ?>" class="custom-btn btn-gray"><?php echo $this->__('Account gegevens instellen') ?></a>
+
+        <?php } ?>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ */
+$menu = $this->viewModel->menu;
+?>
+<div id="scroll" class="col-md-3 col-lg-2 sidebar-left-outer" data-mcs-theme="dark">
+    <?php echo $this->adminMenu($menu); ?>
+</div>

@@ -1,0 +1,186 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ * @var \App\Model\Calendar $calendar
+ * @var array $invalidFields
+ */
+$this->Form()->setValidationErrors($invalidFields);
+$this->viewModel->title =  $calendar->getId() ? 'Kalendar aanpassen' : 'Kalender aanmaken';
+$this->viewModel->menu->setActive(\App\View\Admin\Model\Menu::MENU_MODULE_CALENDAR);
+?>
+<div class="row">
+    <div class="col-md-12 col-lg-9">
+        <div id="overview" ng-app="calendarApp" ng-controller="calendarController">
+
+            <form method="post" action="">
+
+                <div class="content-inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <?php echo $this->Form()->text('name', $this->__('Naam'), $calendar->getName(), true);  ?>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add btn -->
+                <div class="add-btn">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a href="#" ng-click="createNewEvent()" class="custom-btn add-form-control">
+                                <span><?php echo $this->__('Evenement toevoegen') ?></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <input type="hidden" name="events" value="{{ events | json  }}" />
+
+                <!-- Content inner -->
+                <div class="content-inner">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th width="250">Datum</th>
+                            <th width="150">Tijd</th>
+                            <th>Naam</th>
+                            <th>Locatie</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="event in events | orderBy:['date','time']">
+                                <td>
+                                    {{ event.formattedDate }}
+                                </td>
+                                <td>
+                                    {{ event.time }}
+                                </td>
+                                <td>
+                                    {{ event.name }}
+                                </td>
+                                <td>
+                                    {{ event.location }}
+                                </td>
+                                <td>
+                                    <div class="icon-block">
+                                        <a href="#" ng-click="edit(event.id)" class="icon-settings"></a>
+                                        <a href="#" ng-click="remove(event.id)" class="icon-rubbish"></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Save button -->
+                <div class="save-btn">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="custom-btn btn-primary"><?php echo $this->__('Opslaan') ?></button>
+                            <a href="<?php echo $this->adminUrl(\App\Action\Admin\Calendar\IndexAction::ROUTE) ?>" class="custom-btn btn-gray">
+                                <?php echo $this->__('Annuleren') ?>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+            <div class="edit-event modal" id="edit-event-modal" tabindex="-1" role="dialog" aria-labelledby="<?php echo $this->__('Evenement') ?>">
+                <div class="modal-dialog" role="document">
+                    <div class="icon-close-wrapper">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span class="icon-close" aria-hidden="true"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="module-detail module-<?php echo \App\Model\Module::CALENDAR ?>-bg">
+                                        <h2><?php echo $this->__('Evenement') ?></h2>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+
+                                    <div class="content-inner">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="required form-group">
+                                                    <label for="fc-date">Datum</label>
+                                                    <input data-value="" id="fc-date" value="" type="text" name="date" class="datepicker form-control" required="required">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="required form-group">
+                                                    <label for="fc-time">Tijd</label>
+                                                    <input data-value="" id="fc-time" value="" type="text" name="time" class="minute-timepicker form-control" required="required"  ng-model="selectedEvent.time">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="required form-group">
+                                                    <label for="fc-city">Naam</label>
+                                                    <input id="fc-city" value="" type="text" name="name" class="form-control" required="required" ng-model="selectedEvent.name">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="required form-group">
+                                                    <label for="fc-location">Location</label>
+                                                    <input id="fc-location" value="" type="text" name="name" class="form-control" required="required" ng-model="selectedEvent.location">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Save button -->
+                                    <div class="save-btn">
+                                        <div class="row">
+                                            <div class="col-sm-7 col-sm-offset-5">
+                                                <button data-button="submit" ng-click="saveEvent()" class="custom-btn btn-primary"><?php echo $this->__('Opslaan') ?></button>
+                                                <button data-button="close" class="custom-btn btn-gray" data-dismiss="modal"><?php echo $this->__('Annuleren') ?></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/assets/admin/js/calendar/calendarController.js"></script>
+<script src="/assets/admin/js/calendar/calendarService.js"></script>
+<script src="/assets/admin/js/calendar/app.js"></script>
+<script>
+    /**
+     * Set data
+     */
+    $(function() {
+        var scope = angular.element(document.getElementById('overview')).scope();
+
+        <?php foreach($calendar->getEvents() as $event) { ?>
+        scope.add(
+            '<?php echo $event->getId() ?>',
+            '<?php echo $event->getDateTime()->format('Y-m-d') ?>',
+            '<?php echo $event->getDateTime()->format('H:i') ?>',
+            '<?php echo $event->getName() ?>',
+            '<?php echo $event->getLocation() ?>'
+        );
+        <?php } ?>
+        scope.$apply();
+    });
+</script>

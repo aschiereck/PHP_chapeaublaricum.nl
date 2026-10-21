@@ -1,0 +1,90 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ * @var \App\Model\Page $page
+ * @var array $invalidFields
+ */
+$this->Form()->setValidationErrors($invalidFields);
+$this->viewModel->title = 'Pagina aanmaken';
+$this->viewModel->menu->setActive(\App\View\Admin\Model\Menu::MENU_CONTENT_PAGE);
+?>
+<div class="row">
+    <div class="col-md-12 col-lg-9">
+
+        <div class="content-inner">
+
+        <form method="post">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Content title -->
+                    <div class="content-title">
+                        <h2><?php echo $this->__('Pagina informatie') ?></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <?php echo $this->Form()->text('name', $this->__('Titel'), $page->getName(), true);  ?>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Content title -->
+                    <div class="content-title">
+                        <h2><?php echo $this->__('SEO informatie') ?></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <?php echo $this->Form()->checkbox('allowSeoIndex', $this->__('Pagina laten opnemen in zoekmachines zoals Google'), $page->allowSeoIndex());  ?>
+                </div>
+            </div>
+            <div class="row show-for-seo">
+                <div class="col-md-6">
+                    <?php echo $this->Form()->seoFocusWords('focusWords', $this->__('Focuswoorden (ongeveer 3 stuks)'), $page->getFocusWords(), ['headTitle', 'metaDescription', 'name']);  ?>
+                </div>
+                <div class="col-md-6">
+                    <?php echo $this->Form()->text('headTitle',  $this->__('HTML pagina titel'), $page->getHeadTitle());  ?>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 show-for-seo">
+                    <?php echo $this->Form()->metaDescription('metaDescription',  $this->__('Meta omschrijving'), $page->getMetaDescription());  ?>
+                </div>
+                <div class="col-sm-6">
+                    <?php echo $this->Form()->url('url',  $this->__('Url'), $page->getUrl(), 'name');  ?>
+                </div>
+            </div>
+        </div>
+
+            <!-- Save button -->
+            <div class="save-btn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="custom-btn btn-primary"><?php echo $this->__('Opslaan') ?></button>
+                        <a href="<?php echo $this->adminUrl(\App\Action\Admin\Page\IndexAction::ROUTE) ?>" class="custom-btn btn-gray"><?php echo  $this->__('Annuleren') ?></a>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#fc-allowSeoIndex').bind('change', function() {
+
+            var elems = $('.show-for-seo');
+            if($(this).prop('checked'))
+            {
+                elems.show();
+            }
+            else
+            {
+                elems.hide();
+            }
+        }).trigger('change');
+    });
+</script>

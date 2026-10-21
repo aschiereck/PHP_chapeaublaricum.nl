@@ -1,0 +1,43 @@
+<?php
+/**
+ * @var \App\View\Frontend\Model\View $this
+ * @var \App\Model\PageBlock\PageBlockTeam $block
+ */
+?>
+<div class="team-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <div class="title-border">
+                        <h1>Our <span class="light-color">Experts</span></h1>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dolor turpis, pulvinar varius dui<br> id, convallis iaculis eros. Praesent porta lacinia elementum.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <?php foreach($this->viewModel->site->getTeamMembers() as $teamMember) { ?>
+            <div class="col-md-4 col-sm-6">
+                <div class="single-member">
+                    <div class="team-image">
+                        <a href="#"><img src="<?php echo $this->image()->getExactResizeUrl($teamMember->getImage(), 380,568); ?>" alt="<?php echo htmlentities($teamMember->getName()) ?>"></a>
+                        <div class="member-text effect-bottom">
+                            <h4><a href="#"><?php echo htmlentities($teamMember->getName()) ?> | <span><?php echo htmlentities($teamMember->getFunction()) ?></span></a></h4>
+                            <p>
+                                <?php echo htmlentities($teamMember->getSummary()) ?>
+                            </p>
+                            <div class="member-link">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-flickr"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
+        </div>
+    </div>
+</div>

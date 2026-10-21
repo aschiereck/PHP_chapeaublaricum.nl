@@ -1,0 +1,125 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ * @var float $seoScore
+ * @var array $focusWords
+ * @var bool $showGaGraph
+ * @var string $gaGraphColor
+ */
+
+$this->viewModel->title =  'Dashboard';
+$this->viewModel->menu->setActive(\App\View\Admin\Model\Menu::MENU_DASHBOARD);
+?>
+
+<div class="row google-analytics">
+    <div class="col-sm-4">
+        <p class="title"><strong>SEO:</strong> <?php echo $this->__('Hoe goed scoort jouw website') ?></p>
+        <div class="stars-block">
+            <?php for($i =1; $i <= 5; $i++) { ?>
+
+                <?php if($i <= floor($seoScore)) { ?>
+                    <span class="icon-star text-primary"></span>
+                <?php } else if(ceil($seoScore) == $i) { ?>
+                    <span class="icon-star-half-empty"></span>
+                <?php } else { ?>
+                    <span class="icon-star-empty"></span>
+                <?php } ?>
+
+            <?php } ?>
+        </div>
+        <p class="caption">
+            <?php if($seoScore < 1) { ?>
+                <?php echo $this->__('Je website is nog niet optimaal vindbaar') ?>
+            <?php } else if($seoScore < 2.5) { ?>
+                <?php echo $this->__('Je website is goed vindbaar op focuswoorden') ?>
+            <?php } else { ?>
+                <?php echo $this->__('Je website is erg goed vindbaar op focuswoorden') ?>
+            <?php } ?>
+        </p>
+    </div>
+    <div class="col-sm-4">
+        <p class="title"><?php echo $this->__('De meeste gebruikte focuswoorden in je website') ?></p>
+        <div class="row">
+            <div class="col-sm-6">
+                <?php $counter = 1; ?>
+                <?php foreach($focusWords as $focusWord=>$occurrence){ ?>
+
+                    <p class="focus-word">
+                        <strong><?php echo $counter ?>.</strong>
+                        <?php echo $focusWord ?>
+                        <span class="text-primary"><?php echo $occurrence ?>x</span>
+                    </p>
+
+                    <?php if($counter == 3) { ?>
+                        </div>
+                        <div class="col-sm-6">
+                    <?php } ?>
+
+                    <?php $counter++; ?>
+
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php echo $this->render('admin::elements/page-title.phtml', ['title'=>$this->viewModel->title]); ?>
+
+<?php echo $this->render('admin::elements/flash-messages.phtml'); ?>
+
+<?php if($showGaGraph) { ?>
+
+    <div class="row">
+        <div class="col-sm-9">
+            <div class="content-inner" ng-app="graphApp" ng-controller="graphController">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="chart">
+                            <h3 class="text-primary"><?php echo $this->__('Google Analytics') ?></h3>
+                        </div>
+                        <div class="ga_graph">
+                            <div ng-if="isLoading">
+                                <?php echo $this->__('Bezig met laden van de statistieken') ?>
+                            </div>
+                            <div ng-if="noData">
+                                <?php echo $this->__('De Google Analytics integratie is nog niet ingesteld.') ?>
+                            </div>
+                            <div ng-class="{hidden:!showChart}">
+                                <canvas id="gaGraphCanvas" width="930" height="160"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4" ng-if="showChart">
+                        <div class="col-sm-12">
+                            <div class="information-block">
+                                <h3 class="text-primary"><?php echo $this->__('Bezoekersinformatie van de afgelopen 30 dagen') ?></h3>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="info-block">
+                                <span><?php echo $this->__('Paginaweergaves') ?>: <strong  ng-bind-html="totalPageViews"></strong></span>
+                            </div>
+                            <div class="info-block">
+                                <span><?php echo $this->__('Aantal bezoekers') ?>: <strong ng-bind-html="totalVisits"></strong></span>
+                            </div>
+                            <div class="info-block">
+                                <span> <?php echo $this->__('Geselecteerd profiel') ?>: <strong ng-bind-html="profileName"></strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="/assets/admin/js/Chart.min.js"></script>
+    <script src="/assets/admin/js/analytics/graphController.js"></script>
+    <script>
+        var graphDataUrl = '<?php echo $this->adminUrl(\App\Action\Admin\GoogleAnalytics\GraphAction::ROUTE) ?>';
+        var graphColor = '<?php echo $gaGraphColor ?>';
+        var graphApp = angular.module('graphApp', ['ngSanitize']);
+        graphApp.controller("graphController", [ '$scope', '$http', graphController]);
+    </script>
+
+<?php } ?>

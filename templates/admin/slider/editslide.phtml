@@ -1,0 +1,68 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ * @var \App\Model\Slide $slide
+ * @var array $invalidFields
+ * @var int $sliderId
+ * @var array $pages
+ */
+$this->Form()->setValidationErrors($invalidFields);
+$this->viewModel->title = $slide->getId() ? 'Slide aanpassen' : 'Slide aanmaken';
+$this->viewModel->menu->setActive(\App\View\Admin\Model\Menu::MENU_MODULE_SLIDER);
+?>
+<div class="row">
+    <div class="col-md-12 col-lg-9">
+
+        <form method="post" enctype="multipart/form-data">
+
+            <div class="content-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php echo $this->Form()->text('name', $this->__('Naam'), $slide->getName(), true);  ?>
+                    </div>
+                    <div class="col-md-10">
+                        <?php echo $this->Form()->file('slideImage', $this->__('Afbeelding (advies formaat: 1920px bij 500px)'), is_null($slide->getSlideImage()));  ?>
+                    </div>
+                    <div class="col-md-2">
+                        <?php if(!is_null($slide->getSlideImage())) { ?>
+                        <div class="photo thumb">
+                            <div class="image thumb">
+                                <img src="<?php echo $this->image()->getExactResizeUrl($slide->getSlideImage(), 75, 75); ?>">
+                            </div>
+                        </div>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Save button -->
+            <div class="save-btn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="custom-btn btn-primary"><?php echo $this->__('Opslaan') ?></button>
+                        <a href="<?php echo $this->adminUrl(\App\Action\Admin\Slider\ViewAction::ROUTE, ['id'=>$sliderId]) ?>" class="custom-btn btn-gray">
+                            <?php echo $this->__('Annuleren') ?>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#fc-hasLink').bind('change', function() {
+
+            var elems = $('.show-for-link');
+            if($(this).prop('checked'))
+            {
+                elems.show();
+            }
+            else
+            {
+                elems.hide();
+            }
+        }).trigger('change');
+    });
+</script>

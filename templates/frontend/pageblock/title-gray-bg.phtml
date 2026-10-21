@@ -1,0 +1,12 @@
+<?php
+/**
+ * @var \App\View\Frontend\Model\View $this
+ * @var \App\Model\PageBlock\PageBlockCustomTemplate $block
+ */
+?>
+
+<?php if($block->getText()) { ?>
+	<div class="content">
+		<h2 class="title-primary"><?php echo htmlentities($block->getText()); ?></h2>
+	</div>
+<?php } ?>

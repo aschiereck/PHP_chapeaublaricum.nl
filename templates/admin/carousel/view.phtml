@@ -1,0 +1,85 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ * @var \App\Model\Carousel $carousel
+ * @var array $invalidFields
+ */
+$this->Form()->setValidationErrors($invalidFields);
+$this->viewModel->title =  'Carousel ' . $carousel->getName();
+$this->viewModel->menu->setActive(\App\View\Admin\Model\Menu::MENU_MODULE_CAROUSEL);
+?>
+<div class="row">
+    <div class="col-md-12 col-lg-9">
+        <form method="post">
+            <div class="content-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Content title -->
+                        <div class="content-title">
+                            <h2><?php echo $this->__('Carousel titel') ?></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php echo $this->Form()->text('name', $this->__('Naam'), $carousel->getName(), true); ?>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add btn -->
+            <div class="add-btn">
+                <div class="row">
+                    <div class="col-md-4">
+                        <a href="<?php echo $this->adminUrl(\App\Action\Admin\Carousel\EditItemAction::ROUTE, ['parentId'=>$carousel->getId()]) ?>" class="custom-btn add-form-control">
+                            <span><?php echo $this->__('Afbeelding toevoegen') ?></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-inner">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th width="100"></th>
+                        <th width="100"></th>
+                        <th><?php echo $this->__('Naam') ?></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody class="sortable-list" data-sortable-target="<?php echo $this->adminUrl(\App\Action\Admin\Carousel\SortAction::ROUTE, ['id'=>$carousel->getId()]) ?>">
+                    <?php foreach($carousel->getItems() as $item) { ?>
+                        <tr data-id="<?php echo $item->getId(); ?>">
+                            <td>
+                                <span class="icon-move"></span>
+                            </td>
+                            <td>
+                                <?php echo $item->getCarouselImage() ? '<img src="'. $this->image()->getResizeUrl($item->getCarouselImage(), 50, 50) . '">' : '' ?>
+                            </td>
+                            <td><?php echo $item->getName(); ?></td>
+                            <td>
+                                <div class="icon-block">
+                                    <a href="<?php echo $this->adminUrl(\App\Action\Admin\Carousel\EditItemAction::ROUTE, ['parentId'=>$carousel->getId(), 'id'=>$item->getId()]) ?>" class="icon-settings"></a>
+                                    <a href="<?php echo $this->adminUrl(\App\Action\Admin\Carousel\DeleteItemAction::ROUTE, ['id'=>$item->getId()]) ?>" class="icon-rubbish"></a>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <!-- Save button -->
+            <div class="save-btn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="custom-btn btn-primary"><?php echo $this->__('Opslaan') ?></button>
+                        <a href="<?php echo $this->adminUrl(\App\Action\Admin\Carousel\IndexAction::ROUTE) ?>" class="custom-btn btn-gray"><?php echo $this->__('Annuleren') ?></a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ * @var \App\Model\LayoutTextBlock[] $blocks
+ */
+$this->viewModel->title = 'Widgets';
+$this->viewModel->menu->setActive(\App\View\Admin\Model\Menu::MENU_CONTENT_TEXT_BLOCKS);
+?>
+<div class="row">
+    <div class="col-md-12 col-lg-9">
+        <!-- Add btn -->
+        <div class="add-btn">
+            <div class="row">
+                <div class="col-md-5 col-lg-5">
+                    <a href="<?php echo $this->adminUrl(\App\Action\Admin\LayoutTextBlock\EditAction::ROUTE) ?>" class="custom-btn add-form-control">
+                        <span><?php echo $this->__('Widget toevoegen') ?></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Content inner -->
+        <div class="content-inner">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th><?php echo $this->__('Naam') ?></th>
+                    <th><?php echo $this->__('Tag') ?></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach($blocks as $block) { ?>
+                    <tr>
+                        <td><?php echo $block->getName(); ?></td>
+                        <td><?php echo $block->getTag(); ?></td>
+                        <td>
+                            <div class="icon-block">
+                                <a href="<?php echo $this->adminUrl(\App\Action\Admin\LayoutTextBlock\EditAction::ROUTE, ['id'=>$block->getId()]) ?>" class="icon-settings"></a>
+                                <a href="<?php echo $this->adminUrl(\App\Action\Admin\LayoutTextBlock\DeleteAction::ROUTE, ['id'=>$block->getId()]) ?>" class="icon-rubbish"></a>
+                            </div>
+                        </td>
+                    </tr>
+                <?php } ?>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+

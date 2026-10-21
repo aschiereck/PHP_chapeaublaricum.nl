@@ -1,0 +1,46 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ * @var \App\Model\Site $site
+ * @var array $invalidFields
+ */
+$this->Form()->setValidationErrors($invalidFields);
+$this->viewModel->title = $site->getId() ? 'Site aanpassen' : 'Site aanmaken';
+$this->viewModel->menu->setActive(\App\View\Admin\Model\Menu::MENU_CONTENT_ARTICLE);
+?>
+<div class="row">
+    <div class="col-md-12 col-lg-9">
+
+        <form method="post">
+
+            <div class="content-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php echo $this->Form()->text('name', $this->__('Naam'), $site->getName(), true);  ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php echo $this->Form()->text('url', $this->__('Url'), $site->getUrl(), true);  ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php echo $this->Form()->select('locale', 'Locale', \App\Model\Locale::getList(), $site->getLocale(), true);  ?>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Save button -->
+            <div class="save-btn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="custom-btn btn-primary"><?php echo $this->__('Opslaan'); ?></button>
+                        <a href="<?php echo $this->adminUrl(\App\Action\Admin\Site\IndexAction::ROUTE) ?>" class="custom-btn btn-gray"><?php echo $this->__('Annuleren'); ?></a>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

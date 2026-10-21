@@ -1,0 +1,63 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ * @var \App\Model\Form $form
+ * @var \App\Model\FormControl $formControl
+ * @var array $invalidFields
+ * @var array $typeOptions
+ */
+$this->Form()->setValidationErrors($invalidFields);
+$this->viewModel->title = $formControl->getId() ? 'Veld aanpassen' : 'Veld aanmaken';
+$this->viewModel->menu->setActive(\App\View\Admin\Model\Menu::MENU_MODULE_FORM);
+?>
+<div class="row">
+    <div class="col-md-12 col-lg-9">
+
+        <form method="post" enctype="multipart/form-data">
+
+            <div class="content-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php echo $this->Form()->text('label', $this->__('Label'), $formControl->getLabel(), true);  ?>
+                    </div>
+                    <div class="col-md-12">
+                        <?php echo $this->Form()->select('type', $this->__('Type'), $typeOptions, $formControl->getType(), true);  ?>
+                    </div>
+                    <div class="col-md-12">
+                        <?php echo $this->Form()->checkbox('isRequired', $this->__('Verplicht'), $formControl->isRequired());  ?>
+                    </div>
+                    <div class="col-md-12">
+                        <?php echo $this->Form()->textarea('listOptions', $this->__('Lijst opties (1 optie per regel)'), $formControl->getListOptions(), false);  ?>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Save button -->
+            <div class="save-btn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="custom-btn btn-primary"><?php echo $this->__('Opslaan') ?></button>
+                        <a href="<?php echo $this->adminUrl(\App\Action\Admin\Form\ViewAction::ROUTE, ['id'=>$form->getId()]) ?>" class="custom-btn btn-gray"><?php echo $this->__('Annuleren') ?></a>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#fc-type').bind('change', function() {
+
+            var value = $(this).val();
+            if(value == '<?php echo \App\Model\FormControl::TYPE_LIST_MULTIPLE ?>' || value == '<?php echo \App\Model\FormControl::TYPE_LIST_SINGLE ?>')
+            {
+                $('#fc-listOptions').parent().show();
+            }
+            else
+            {
+                $('#fc-listOptions').parent().hide();
+            }
+        }).trigger('change');
+    });
+</script>

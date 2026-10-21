@@ -1,0 +1,12 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ * @var array $json
+ */
+?>
+<script>
+    var scope = window.parent.getPageBuilderScope();
+    var data = <?php echo json_encode($json); ?>;
+
+    scope.handleBlockResponse(data);
+</script>

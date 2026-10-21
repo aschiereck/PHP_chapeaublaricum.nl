@@ -1,0 +1,7 @@
+assets/*
+!admin
+!css
+!js
+!images
+!editor.css
+!.gitignore

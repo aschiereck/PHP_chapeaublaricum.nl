@@ -1,0 +1,108 @@
+<?php
+/**
+ * @var \App\View\Frontend\Model\View $this
+ * @var \App\Model\Page $page
+ * @var \App\Repository\IPageBlockMetaRepository $meta
+ */
+
+$rows = [];
+
+foreach ($page->getPageBlocks() as $pageBlock)
+{
+    $y = $pageBlock->getY();
+    if (!isset($rows[$y]))
+    {
+        $rows[$y] = [];
+    }
+    $rows[$y][] = $pageBlock;
+}
+
+
+
+foreach($rows as $row)
+{
+    $blockHtml = '';
+    $currentX = 0;
+    $renderContainer = false;
+
+    $rowClasses = [
+        'row',
+        'no-margin',
+        'row-eq-height'
+    ];
+    $sectionClasses = [];
+
+    /**
+     * Render md classes for 1/4 1/4 1/4 1/4 rows
+     */
+    $isRowWithOnlyQuartzBlocks = false;
+    if(count($row) == 4)
+    {
+        $isRowWithOnlyQuartzBlocks = true;
+
+        /** @var \App\Model\PageBlock\AbstractPageBlock $block */
+        foreach($row as $block)
+        {
+            if($block->getWidth() != 3)
+            {
+                $isRowWithOnlyQuartzBlocks = false;
+            }
+        }
+    }
+
+
+    /** @var \App\Model\PageBlock\AbstractPageBlock $pageBlock */
+    foreach($row as $pageBlock)
+    {
+        $colClasses = [
+            'block-' . $pageBlock->getTemplate()
+        ];
+        $sectionClasses[] = 'contains-block-' . $pageBlock->getTemplate();
+
+        if($isRowWithOnlyQuartzBlocks)
+        {
+            $colClasses[] = 'col-sm-6';
+            $colClasses[] = 'col-md-3';
+        }
+        else
+        {
+            $colClasses[] = 'col-sm-'.$pageBlock->getWidth();
+        }
+
+
+        if($meta->renderContainer($pageBlock))
+        {
+            $renderContainer = true;
+        }
+        else
+        {
+            $colClasses[] = 'no-padding';
+        }
+
+        if($currentX < $pageBlock->getX())
+        {
+            $offset = $pageBlock->getX() - $currentX;
+            $colClasses[] = 'col-sm-offset-' . $offset;
+            $currentX += $offset;
+        }
+
+        $blockHtml .=  '<div class="'.implode(' ', $colClasses).'">';
+        $blockHtml .= $this->render('frontend::pageblock/' .$pageBlock->getTemplate(), ['block'=>$pageBlock, 'viewModel'=>$this->viewModel]);
+        $blockHtml .= '</div>';
+
+        $currentX += $pageBlock->getWidth();
+    }
+
+    $rowHtml = '<div class="'.implode(' ', array_unique($rowClasses)) .'">' . $blockHtml . '</div>';
+
+    if($renderContainer)
+    {
+        $rowHtml = '<div class="container">' . $rowHtml . '</div>';
+    }
+
+    //Render extra cobntainer
+    $sectionHtml = '<section class="'.implode(' ', array_unique($sectionClasses)).'">'.$rowHtml.'</section>';
+    echo $sectionHtml;
+}
+
+

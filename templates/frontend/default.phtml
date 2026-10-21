@@ -1,0 +1,107 @@
+<?php
+/**
+ * @var \App\View\Frontend\Model\View $this
+ */
+?>
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><?php echo htmlspecialchars($this->viewModel->headTitle) ?> - Chapeau Blaricum</title>
+    <?php echo $this->meta($this->viewModel); ?>
+
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/images/favicon/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicon/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicon/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicon/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/assets/images/favicon/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/images/favicon/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/assets/images/favicon/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/images/favicon/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="&nbsp;"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="/assets/images/favicon/mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="/assets/images/favicon/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="/assets/images/favicon/mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="/assets/images/favicon/mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="/assets/images/favicon/mstile-310x310.png" />
+
+    <!-- Bootstrap.min.css -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <!-- Non-bootstrap.css -->
+    <link rel="stylesheet" href="/assets/css/non-bootstrap.css">
+    <!-- Responsive.css -->
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    <!-- Flickity.css (slider) -->
+    <link rel="stylesheet" href="/assets/css/slider/flickity.css">
+    <!-- Gallery.css -->
+    <link rel="stylesheet" href="/assets/css/gallery/gallery.css">
+    <!-- Mailchimp.css -->
+    <link rel="stylesheet" href="/assets/css/mailchimp/mailchimp.css">
+    <!-- Stylesheet.css (Bell font) -->
+    <link rel="stylesheet" href="/assets/css/fonts/stylesheet.css">
+    <!-- Google webfont: Raleway  -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i" rel="stylesheet">
+    <!-- Jquery-slim.min.js, Popper.min.js, Bootstrap.min.js -->
+    <script src="/assets/js/jquery-slim.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Added the api.js script for reCaptcha -->
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127517408-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-127517408-1');
+    </script>
+    <!-- Cookieinfo.min.js -->
+    <script type="text/javascript" id="cookieinfo" data-message="Onze website maakt gebruik van cookies. Met deze cookies kunnen wij je website bezoek analyseren en verbeteren." data-close-text="Akkoord" data-position="top" data-text-align="left" data-bg="#ffd967" data-fg="#ffffff" data-divlink="#ffd967" data-divlinkbg="#ffffff" data-zindex="999" src="assets/js/cookie/cookieinfo.min.js">
+    </script>
+
+</head>
+<body>
+
+    <!-- Setup the Facebook SDK for JavaScript -->
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '1957592781181331',
+                xfbml      : true,
+                version    : 'v2.11'
+            });
+            FB.AppEvents.logPageView();
+            };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+<script src="https://live.tebi.co/ecom/widget-manager.js" data-widget-token="445420_7cce0db238110f8b60b2f20fc9541afcabe450d947647de38f5036d633ce5920" id="tebi"></script>
+
+
+
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <?php echo $this->render('frontend::elements/menu.phtml'); ?>
+    <?php echo $this->content ?>
+    <?php echo $this->render('frontend::elements/footer.phtml'); ?>
+</body>
+</html>

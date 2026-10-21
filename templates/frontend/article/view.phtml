@@ -1,0 +1,71 @@
+<?php
+/**
+ * @var \App\View\Frontend\Model\View $this
+ * @var \App\Model\Article $article
+ */
+?>
+<script type="application/ld+json">
+<?php
+    $snippet = array(
+        "@context" => "http://schema.org/",
+        "@type" => "NewsArticle",
+        "headline" => $article->getName(),
+        "datePublished" => $article->getPublishDate()->format('Y-m-d\TH:i:s'),
+        "dateModified" =>  $article->getPublishDate()->format('Y-m-d\TH:i:s'),
+        "description" => $article->getSummary(),
+        "mainEntityOfPage" => array(
+            "@type" => "WebPage",
+            "@id" => $this->link()->article($article)
+        ),
+    );
+
+    if($article->getArticleImage())
+    {
+        $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://';
+        $snippet['image'] = array(
+            "@type" => "ImageObject",
+            "url" => $this->image()->getExactResizeUrl($article->getArticleImage(), 800, 600),
+        );
+    }
+
+    echo json_encode($snippet, JSON_UNESCAPED_SLASHES )
+?>
+
+</script>
+
+<!-- Share buttons -->
+<div id="share-buttons">
+    <a href="http://twitter.com/share?url=<?php echo $this->viewModel->getCurrentUrl(); ?>&text=<?php echo urlencode($article->getName()); ?>&via=REDS" target="_blank" class="share-btn twitter">
+        <i class="fa fa-twitter"></i>
+    </a>
+    <a href="https://plus.google.com/share?url=<?php echo $this->viewModel->getCurrentUrl(); ?>" target="_blank" class="share-btn google-plus">
+        <i class="fa fa-google-plus"></i>
+    </a>
+    <a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $this->viewModel->getCurrentUrl(); ?>" target="_blank" class="share-btn facebook">
+        <i class="fa fa-facebook"></i>
+    </a>
+    <a href="http://www.linkedin.com/shareArticle?url=<?php echo $this->viewModel->getCurrentUrl(); ?>" target="_blank" class="share-btn linkedin">
+        <i class="fa fa-linkedin"></i>
+    </a>
+    <a href="mailto:" class="share-btn email">
+        <i class="fa fa-envelope"></i>
+    </a>
+</div>
+
+<div class="contains-block-news-archive">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="content">
+                    <h2 class="title-primary"><?php echo htmlentities($article->getName()); ?></h2>
+                    <p class="summary"><?php echo ($article->getSummary()); ?></p>
+                    <p><?php echo ($article->getContent()); ?></p>
+                    <img src="<?php echo $this->image()->getUrl($article->getArticleImage(),350,250); ?>"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

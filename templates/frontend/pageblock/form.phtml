@@ -1,0 +1,31 @@
+<?php
+/**
+ * @var \App\View\Frontend\Model\View $this
+ * @var \App\Model\PageBlock\PageBlockForm $block
+ */
+
+$this->form()->setFormResults($block->getForm(), $this->viewModel->formResults);
+?>
+
+
+<div class="content">
+    <h2 class="title-primary title-photo-album"><?php echo $block->getForm()->getName() ?></h2>
+</div>
+
+<?php if($this->form()->showErrorMessage()){ ?>
+    <div class="alert alert-danger">
+        Sommige velden zijn niet correct ingevuld
+    </div>
+<?php } ?>
+<form method="post" enctype="multipart/form-data">
+    <?php echo $this->form()->getFormIdField($block->getForm()); ?>
+    <?php foreach($block->getForm()->getFormControls() as $formControl) { ?>
+        <div class="form-group <?php echo $formControl->isRequired() ? 'required' : '' ?>">
+            <?php echo $this->form()->renderControl($formControl); ?>
+        </div>
+    <?php } ?>
+    <?php if($block->getForm()->isRecaptchaEnabled()) { ?>
+        <?php echo $this->form()->renderRecaptcha(); ?>
+    <?php } ?>
+    <button type="submit" class="btn btn-secondary">Versturen</button>
+</form>

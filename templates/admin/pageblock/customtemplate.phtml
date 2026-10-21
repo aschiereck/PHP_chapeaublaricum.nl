@@ -1,0 +1,91 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ * @var \App\Model\PageBlock\PageBlockCustomTemplate $pageBlock
+ * @var \App\Model\CustomBlockTemplate $template
+ * @var array $invalidFields
+ * @var array $pages
+ */
+use App\Action\Image\ResizerAction;
+
+$this->Form()->setValidationErrors($invalidFields);
+?>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="module-detail module-<?php echo \App\Model\Module::PAGE ?>-bg">
+            <h2><?php echo $template->getName() ?></h2>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+
+        <form method="post" target="pageblock-uploader" action="<?php echo $this->viewModel->currentUrl ?>" enctype="multipart/form-data">
+
+            <div class="content-inner">
+                <?php foreach($template->getFields() as $field) { ?>
+
+                    <?php if($field->getType() == \App\Model\CustomBlockField::TYPE_TEXT) { ?>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <?php echo $this->Form()->text('text', $field->getLabel(), $pageBlock->getText(), true);  ?>
+                            </div>
+                        </div>
+
+                    <?php } else if($field->getType() == \App\Model\CustomBlockField::TYPE_IMAGE) { ?>
+
+                        <input type="hidden" name="imageId" value="<?php echo $pageBlock->getImage() ? $pageBlock->getImage()->getId() : '' ?>"/>
+                        <div class="row">
+                            <div class="col-sm-10">
+                                <?php echo $this->Form()->file('image', $field->getLabel(), is_null($pageBlock->getImage()));  ?>
+                            </div>
+                            <div class="col-md-2">
+                                <?php if(!is_null($pageBlock->getImage())) { ?>
+                                    <div class="photo thumb">
+                                        <div class="image thumb">
+                                            <img src="<?php echo $this->image()->getExactResizeUrl($pageBlock->getImage(),75,75) ?>">
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+
+                    <?php } else if($field->getType() == \App\Model\CustomBlockField::TYPE_LINK) { ?>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label><?php echo $field->getLabel() ?></label>
+                            </div>
+                            <?php echo $this->render('admin::elements/link-form', ['pages' => $pages, 'link'=>$pageBlock->getLink()]); ?>
+                        </div>
+
+                    <?php } else if($field->getType() == \App\Model\CustomBlockField::TYPE_RICHTEXT) { ?>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <?php echo $this->Form()->richText('richtext', $field->getLabel(), $pageBlock->getContent());  ?>
+                            </div>
+                        </div>
+
+                    <?php } else  { throw new Exception('Unknown field'); } ?>
+                <?php } ?>
+
+            </div>
+
+            <!-- Save button -->
+            <div class="save-btn">
+                <div class="row">
+                    <div class="col-sm-7 col-sm-offset-5">
+                        <button type="submit" class="custom-btn btn-primary"><?php echo $this->__('Opslaan') ?></button>
+                        <button data-button="close" class="custom-btn btn-gray"><?php echo $this->__('Annuleren') ?></button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>

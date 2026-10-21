@@ -1,0 +1,55 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ * @var \App\Model\User $user
+ * @var array $invalidFields
+ */
+$this->Form()->setValidationErrors($invalidFields);
+$this->viewModel->title = 'Profiel';
+?>
+<div class="row">
+    <div class="col-md-12 col-lg-9">
+
+        <form method="post">
+
+            <div class="content-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php echo $this->Form()->text('name', $this->__('Naam'), $user->getName(), true);  ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php echo $this->Form()->text('email', $this->__('Email'), $user->getEmail(), true);  ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php echo $this->Form()->password('newPassword', $this->__('Nieuw wachtwoord'));  ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php echo $this->Form()->password('repeatPassword', $this->__('Herhaal nieuw wachtwoord'));  ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php echo $this->Form()->password('currentPassword', $this->__('Huidig wachtwoord'), '', true);  ?>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Save button -->
+            <div class="save-btn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="custom-btn btn-primary"><?php echo $this->__('Opslaan') ?></button>
+                        <a href="<?php echo $this->adminUrl(\App\Action\Admin\Dashboard\IndexAction::ROUTE) ?>" class="custom-btn btn-gray"><?php echo $this->__('Annuleren') ?></a>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<?php
+/**
+ * @var \App\View\Frontend\Model\View $this
+ * @var \App\Model\PageBlock\PageBlockUpcomingEvents $block
+ */
+?>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="intro-text">
+                <h2>Opkomende evenementen</h2>
+                <hr class="general-hr custom-hr">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <?php foreach($this->calendar()->getUpcomingEvents($this->viewModel->site, $block->getNumberOfEvents()) as $event){ ?>
+            <div class="col-sm-6">
+                <div class="news-item">
+                    <div class="overlay"></div>
+                    <div class="text-block">
+                        <h2><?php echo htmlentities($event->getName()) ?></h2>
+                        <p><?php echo nl2br($event->getName()) ?></p>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+    </div>
+</div>

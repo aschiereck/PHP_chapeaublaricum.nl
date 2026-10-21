@@ -1,0 +1,55 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ * @var \App\Model\Carousel[] $carousels
+ */
+$this->viewModel->title =  'Carousel';
+$this->viewModel->menu->setActive(\App\View\Admin\Model\Menu::MENU_MODULE_CAROUSEL);
+?>
+<div class="row">
+    <div class="col-md-12 col-lg-9">
+        <!-- Add btn -->
+        <div class="add-btn">
+            <div class="row">
+                <div class="col-md-5 col-lg-5">
+                    <a href="<?php echo $this->adminUrl(\App\Action\Admin\Carousel\CreateAction::ROUTE) ?>" class="custom-btn add-form-control">
+                        <span><?php echo $this->__('Carousel toevoegen') ?></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Content inner -->
+        <div class="content-inner">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th><?php echo $this->__('Naam') ?></th>
+                    <th><?php echo $this->__('Gekoppeld aan pagina') ?></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach($carousels as $carousel) { ?>
+                    <tr>
+                        <td><?php echo $carousel->getName(); ?></td>
+                        <td>
+                            <span class="badge" data-trigger="hover" data-toggle="popover" title="<?php echo $this->__('Word gebruikt op') ?>:" data-placement="bottom" data-content="<?php echo $carousel->getUsedOnText() ?>">
+                                <?php echo count($carousel->getPageBlocks()) ?>
+                            </span>
+                        </td>
+                        <td>
+                            <div class="icon-block">
+                                <a href="<?php echo $this->adminUrl(\App\Action\Admin\Carousel\ViewAction::ROUTE, ['id'=>$carousel->getId()]) ?>" class="icon-settings"></a>
+                                <a href="<?php echo $this->adminUrl(\App\Action\Admin\Carousel\DeleteAction::ROUTE, ['id'=>$carousel->getId()]) ?>" class="icon-rubbish"></a>
+                            </div>
+                        </td>
+                    </tr>
+                <?php } ?>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+

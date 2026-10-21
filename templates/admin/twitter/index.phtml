@@ -1,0 +1,42 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ * @var \App\Service\Twitter\Profile $profile
+ */
+$this->viewModel->title = 'Twitter';
+$this->viewModel->menu->setActive(\App\View\Admin\Model\Menu::MENU_SETTINGS_TWITTER);
+?>
+<div class="row">
+    <div class="col-md-12 col-lg-9">
+
+        <?php if($profile) { ?>
+            <form method="post">
+
+                <div class="content-inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Ingelogd als</label><br/>
+                                <?php echo $profile->name ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Save button -->
+                <div class="save-btn">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a href="<?php echo $this->adminUrl(\App\Action\Admin\Twitter\ClearAction::ROUTE) ?>" onclick="return confirm('Weet u zeker dat u de gegevens wil verwijderen?');" class="custom-btn btn-gray" id="deleteAccount">Account gegevens wissen</a>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+        <?php } else { ?>
+
+            <a href="<?php echo $this->adminUrl(\App\Action\Admin\Twitter\FetchRequestTokenAction::ROUTE) ?>" class="custom-btn btn-gray">Account gegevens instellen</a>
+
+        <?php } ?>
+    </div>
+</div>

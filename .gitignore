@@ -1,0 +1,20 @@
+# Vendor (wordt beheerd via composer)
+/vendor/
+
+# Plesk & server-mappen
+/backup/
+/error_docs/
+/logs/
+/.composer/
+/.pki/
+/.ssh/
+.*imunify*
+*.zip
+
+# Cache, sessies en data
+/data/cache/
+/data/logs/
+
+# Gevoelige configuratie (database inlog)
+/config/autoload/*.local.php
+/config/local.php

@@ -1,0 +1,23 @@
+<?php
+/**
+ * @var \App\View\Frontend\Model\View $this
+ * @var \App\Model\PageBlock\PageBlockCustomTemplate $block
+ */
+?>
+
+<div class="bg-img" style="background-image: url(<?php echo $this->image()->getExactResizeUrl($block->getImage(),1920,600); ?>">
+	<div class="container">
+		<div class="row row-eq-height information-block">
+			<div class="col-sm-12 col-md-6 information-block-left content">
+				<h2 class="title title-primary">Restaurant Chapeau in Blaricum</h2>
+			</div>
+			<div class="col-sm-12 col-md-6 information-block-right">
+				<div class="row">
+					<div class="col-sm-12">
+						<a href="/reserveren" class="btn btn-primary center-block">Reserveren</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

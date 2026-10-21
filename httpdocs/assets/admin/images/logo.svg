@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Custom-CMS-UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Custom-CMS---LOGIN" transform="translate(-880.000000, -250.000000)">
+            <g id="screen" transform="translate(394.000000, 219.000000)">
+                <g id="branding" transform="translate(349.000000, 0.000000)">
+                    <g id="logo" transform="translate(137.000000, 31.000000)">
+                        <path d="M49.9160361,25 C49.9160361,38.8066176 38.742349,50 24.957651,50 C11.1744212,50 0,38.8066176 0,25 C0,11.1933824 11.1744212,0 24.957651,0 C38.742349,0 49.9160361,11.1933824 49.9160361,25" id="Fill-1" fill="#000000"></path>
+                        <path d="M20.4164596,34.06625 L34.0242518,34.06625 L34.0242518,38.6324265 L15.8917843,38.6324265 L15.8917843,38.2574265 L20.4164596,34.06625 Z M20.4164596,22.7508088 L34.0242518,22.7508088 L34.0242518,27.2831618 L20.4164596,27.2831618 L15.8917843,27.2831618 L15.8917843,22.7508088 L20.4164596,22.7508088 Z M34.0242518,11.3684559 L34.0242518,15.9353676 L20.4164596,15.9353676 L15.8917843,11.3684559 L34.0242518,11.3684559 Z" id="Fill-3" fill="#FEFEFE"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

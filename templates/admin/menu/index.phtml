@@ -1,0 +1,103 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ * @var \App\Model\MenuItem[] $menuItems
+ */
+
+$this->viewModel->title = 'Menu';
+$this->viewModel->menu->setActive(\App\View\Admin\Model\Menu::MENU_CONTENT_MENU);
+?>
+<div class="row">
+    <div class="col-md-12 col-lg-9">
+        <!-- Add btn -->
+        <div class="add-btn">
+            <div class="row">
+                <div class="col-md-5 col-lg-5">
+                    <a href="<?php echo $this->adminUrl(\App\Action\Admin\Menu\EditAction::ROUTE) ?>" class="custom-btn add-form-control">
+                        <span><?php echo $this->__('Menu item toevoegen') ?></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Content inner -->
+        <div class="content-inner">
+            <table class="table" id="menu-root-item-sortable">
+                <thead>
+                <tr>
+                    <th width="100"></th>
+                    <th><?php echo $this->__('Naam') ?></th>
+                    <th width="100"></th>
+                </tr>
+                </thead>
+                <?php foreach($menuItems as $menuItem) { ?>
+                    <tbody class="sortable-submenu" data-id="<?php echo $menuItem->getId(); ?>">
+                        <tr>
+                            <td>
+                                <span class="icon-move root-item-handle"></span>
+                            </td>
+                            <td><?php echo $menuItem->getName(); ?></td>
+                            <td>
+                                <div class="icon-block">
+                                    <a href="<?php echo $this->adminUrl(\App\Action\Admin\Menu\EditAction::ROUTE, ['id'=>$menuItem->getId()]) ?>" class="icon-settings"></a>
+                                    <a href="<?php echo $this->adminUrl(\App\Action\Admin\Menu\DeleteAction::ROUTE, ['id'=>$menuItem->getId()]) ?>" class="icon-rubbish"></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <?php if(count($menuItem->getChildren()) > 0) { ?>
+                        <tr class="submenu">
+                            <td colspan="3">
+                                <table class="table">
+                                    <tbody class="sortable-list" data-sortable-target="<?php echo $this->adminUrl(\App\Action\Admin\Menu\SortItemsAction::ROUTE); ?>">
+                                    <?php foreach($menuItem->getChildren() as $child) { ?>
+                                        <tr data-id="<?php echo $child->getId(); ?>">
+                                            <td width="100">
+                                                <span class="icon-move root-item-handle"></span>
+                                            </td>
+                                            <td class="name"><?php echo $child->getName(); ?></td>
+                                            <td width="200">
+                                                <div class="icon-block">
+                                                    <a href="<?php echo $this->adminUrl(\App\Action\Admin\Menu\EditAction::ROUTE, ['id'=>$child->getId()]) ?>" class="icon-settings"></a>
+                                                    <a href="<?php echo $this->adminUrl(\App\Action\Admin\Menu\DeleteAction::ROUTE, ['id'=>$child->getId()]) ?>" class="icon-rubbish"></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                <?php } ?>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(function(){
+        var list = document.getElementById('menu-root-item-sortable');
+        Sortable.create(list, {
+            animation: 500,
+            group: "root",
+            handle: ".root-item-handle",
+            draggable: ".sortable-submenu",
+            chosenClass: "sortable-chosen",
+            onEnd: function (evt){
+                var l = $(list);
+                var ids = [];
+
+                l.find('.sortable-submenu').each(function(){
+                    ids.push($(this).attr('data-id'));
+                });
+                $.post(
+                    '<?php echo $this->adminUrl(\App\Action\Admin\Menu\SortItemsAction::ROUTE); ?>',
+                    { "position": ids.join(',') }
+                );
+            }
+        });
+    });
+
+</script>

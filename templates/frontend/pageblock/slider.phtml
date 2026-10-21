@@ -1,0 +1,25 @@
+<?php
+/**
+ * @var \App\View\Frontend\Model\View $this
+ * @var \App\Model\PageBlock\PageBlockSlider $block
+ */
+?>
+
+<!-- Slider.js & Flickity.pkgd.js (slider) -->
+<script src="/assets/js/slider/slider.js"></script>
+<script src="/assets/js/slider/flickity.pkgd.js"></script>
+
+<!-- Slider -->
+<div id="slider">
+    <?php foreach($block->getSlider()->getSlides() as $slide) { ?>
+        <div class="slide-image">
+        	<img src="<?php echo $this->image()->getExactResizeUrl($slide->getSlideImage(),1920,500); ?>" alt="" title="<?php echo htmlentities($slide->getName()) ?>"/>
+        </div>
+    <?php } ?>
+</div>
+
+
+
+
+
+

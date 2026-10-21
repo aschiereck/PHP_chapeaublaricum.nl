@@ -1,0 +1,15 @@
+<?php
+/**
+ * @var \App\View\Frontend\Model\View $this
+ * @var \App\Model\PageBlock\PageBlockCustomTemplate $block
+ */
+?>
+<div class="section-title text-center">
+    <?php if($block->getText()) { ?>
+        <div class="title-border">
+            <h1><?php echo htmlentities($block->getText()); ?></h1>
+        </div>
+    <?php } ?>
+    <?php echo $block->getContent() ?>
+</div>
+

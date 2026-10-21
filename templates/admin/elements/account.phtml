@@ -1,0 +1,17 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ */
+?>
+<div class="portal-block">
+    <a href="<?php echo $this->adminUrl(\App\Action\Admin\Profile\IndexAction::ROUTE); ?>">
+        <span class="icon-user"></span>
+        <span><?php echo $this->viewModel->currentUser->getName() ?></span>
+    </a>
+</div>
+<div class="portal-block">
+    <a href="<?php echo $this->adminUrl(\App\Action\Admin\Auth\LogoutAction::ROUTE); ?>">
+        <span class="icon-logout"></span>
+        <span><?php echo $this->__('Uitloggen'); ?></span>
+    </a>
+</div>

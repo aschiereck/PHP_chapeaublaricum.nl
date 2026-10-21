@@ -1,0 +1,16 @@
+/* Mobiele styling */
+@media (max-width: 767px) {}
+
+/* Ipad staand styling */
+@media (min-width: 768px) and (max-width: 991px) {}
+
+/* Ipad liggend styling */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+	/* Hero portal bar */
+	#hero-portal-bar .portal-block {margin-right: 5px;}
+	#hero-portal-bar .portal-block span {font-size: 12px;}
+}
+
+/* Desktop groot formaat */
+@media (min-width: 1200px) {}

@@ -1,0 +1,82 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ * @var \App\Model\Project $project
+ * @var array $photoAlbums
+ * @var array $invalidFields
+ */
+$this->Form()->setValidationErrors($invalidFields);
+$this->viewModel->title = $project->getId() ? 'Product aanpassen' : 'Product aanmaken';
+$this->viewModel->menu->setActive(\App\View\Admin\Model\Menu::MENU_MODULE_PROJECT);
+?>
+<div class="row">
+    <div class="col-md-12 col-lg-9">
+
+        <form method="post" enctype="multipart/form-data">
+
+            <div class="content-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php echo $this->Form()->text('name', $this->__('Naam'), $project->getName(), true);  ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php echo $this->Form()->textarea('summary', $this->__('Samenvatting'), $project->getSummary(), true);  ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10">
+                        <?php echo $this->Form()->file('image', $this->__('Afbeelding'));  ?>
+                    </div>
+                    <div class="col-md-2">
+                        <?php if(!is_null($project->getImage())) { ?>
+                            <div class="photo thumb">
+                                <div class="image thumb">
+                                    <img src="<?php echo $this->image()->getExactResizeUrl($project->getImage(), 75,75) ?>">
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php echo $this->Form()->select('photoAlbumId', $this->__('Fotoalbum'), ([0=>'Geen'] + $photoAlbums), $project->getPhotoAlbum() ? $project->getPhotoAlbum()->getId() : 0);  ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <?php echo $this->Form()->seoFocusWords('focusWords', 'Focuswoorden (ongeveer 3 stuks)', $project->getFocusWords(), ['headTitle', 'metaDescription', 'name', 'content']);  ?>
+                    </div>
+                    <div class="col-md-6">
+                        <?php echo $this->Form()->text('headTitle', 'HTML pagina titel', $project->getHeadTitle(), true);  ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <?php echo $this->Form()->metaDescription('metaDescription', 'Meta omschrijving', $project->getMetaDescription(), true);  ?>
+                    </div>
+                    <div class="col-md-6">
+                        <?php echo $this->Form()->url('url', 'Url', $project->getUrl(), 'name', true);  ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php echo $this->Form()->richText('content', 'Bericht', $project->getContent());  ?>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Save button -->
+            <div class="save-btn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="custom-btn btn-primary"><?php echo $this->__('Opslaan'); ?></button>
+                        <a href="<?php echo $this->adminUrl(\App\Action\Admin\Project\IndexAction::ROUTE) ?>" class="custom-btn btn-gray"><?php echo $this->__('Annuleren'); ?></a>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

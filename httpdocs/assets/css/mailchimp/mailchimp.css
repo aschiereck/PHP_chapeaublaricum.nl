@@ -1,0 +1,24 @@
+/* MailChimp Form Embed Code - Slim - 12/15/2015 v10.7 */
+#mc_embed_signup {max-width: 100%; margin-top: 10px;}
+#mc_embed_signup input {display: block; width: 100%; margin-bottom: 5px; text-transform: uppercase; padding: 8px 12px; font-size: 14px; line-height: 1.42857143; color: #231f20; background: #ffd967; border: 2px solid #ffffff; outline: 0;}
+#mc_embed_signup input[type=submit] {display:inline-block;font-family: 'Raleway', sans-serif;background-color: #ffd967; color: #231f20; text-transform:uppercase;padding:10px 16px;border:0;letter-spacing:1px;font-size:16px;font-weight:700;line-height:1.25;text-align:center;white-space:nowrap;vertical-align:middle;-ms-touch-action:manipulation;touch-action:manipulation;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;transition:all .15s ease-in-out;}
+#mc_embed_signup input[type=submit]:hover {background-color: #ffd967; color: #231f20;}
+
+#mc_embed_signup input::-moz-placeholder{color: #231f20; opacity: 1}
+#mc_embed_signup input:-ms-input-placeholder{color: #231f20}
+#mc_embed_signup input::-webkit-input-placeholder{color: #231f20}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767px) {}
+
+/* Medium devices (tablets, less than 992px) */
+@media (min-width: 768px) and (max-width: 991px) {}
+
+/* Large devices (desktops, less than 1200px) */
+@media (min-width: 992px) and (max-width: 1199px) {}
+
+/* Large devices (desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+	#mc_embed_signup {max-width: 70%;}
+}

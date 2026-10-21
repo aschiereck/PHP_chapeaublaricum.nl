@@ -1,0 +1,782 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2017-02-20 22:59+0100\n"
+"PO-Revision-Date: 2017-02-20 22:59+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: __;translate\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: C:\\xampp\\htdocs\\evolved\\src\\Action\\Admin\n"
+"X-Poedit-SearchPath-1: C:\\xampp\\htdocs\\evolved\\templates\\admin\n"
+"X-Poedit-SearchPath-2: C:\\xampp\\htdocs\\evolved\\src\\View\\Admin\n"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Auth/LoginAction.php:80
+msgid "Geen toegang"
+msgstr "Access denied"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Carousel/CreateAction.php:44
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Carousel/ViewAction.php:56
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Form/EditFormControlAction.php:77
+#: C:\xampp\htdocs\evolved\src\Action\Admin/LayoutTextBlock/EditAction.php:64
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Menu/EditAction.php:72
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Page/CreateAction.php:54
+#: C:\xampp\htdocs\evolved\src\Action\Admin/PhotoAlbum/CreateAction.php:43
+#: C:\xampp\htdocs\evolved\src\Action\Admin/PhotoAlbum/EditAction.php:73
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Profile/IndexAction.php:77
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Slider/CreateAction.php:43
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Slider/ViewAction.php:53
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Team/EditAction.php:83
+#: C:\xampp\htdocs\evolved\src\Action\Admin/User/EditAction.php:82
+msgid "Gegevens opgeslagen"
+msgstr "Data saved"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Carousel/CreateAction.php:64
+msgid "Carousel aanmaken"
+msgstr "Create Carousel "
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Carousel/DeleteAction.php:42
+msgid "Carousel verwijderd"
+msgstr "Carousel removed"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Carousel/DeleteItemAction.php:42
+msgid "Carousel afdbeelding verwijderd"
+msgstr "Image removed"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Carousel/EditItemAction.php:75
+msgid "Carousel afdbeelding aanpassen"
+msgstr "Update image"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Carousel/EditItemAction.php:84
+msgid "Carousel afdbeelding aanmaken"
+msgstr "Create image"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Carousel/IndexAction.php:42
+msgid "Carousels"
+msgstr "Carousels"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Carousel/ViewAction.php:76
+#: C:\xampp\htdocs\evolved\src\Action\Admin/PageRow/CarouselAction.php:78
+#: C:\xampp\htdocs\evolved\src\View\Admin/Model/Menu.php:237
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/carousel.phtml:14
+msgid "Carousel"
+msgstr "Carousel"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Dashboard/IndexAction.php:61
+#: C:\xampp\htdocs\evolved\src\View\Admin/Model/Menu.php:118
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Form/CreateAction.php:75
+msgid "Formulier aanmaken"
+msgstr "Form created"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Form/DeleteAction.php:41
+msgid "Formulier verwijderd"
+msgstr "Form removed"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Form/DeleteFormControlAction.php:41
+msgid "Formulier veld verwijderd"
+msgstr "Form field removed"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Form/EditFormControlAction.php:55
+msgid "Formulier veld aanpassen"
+msgstr "Update form field "
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Form/EditFormControlAction.php:64
+msgid "Formulier veld aanmaken"
+msgstr "Create form field"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Form/IndexAction.php:41
+#: C:\xampp\htdocs\evolved\src\View\Admin/Model/Menu.php:204
+msgid "Formulieren"
+msgstr "Forms"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Form/ViewAction.php:87
+#: C:\xampp\htdocs\evolved\src\Action\Admin/PageRow/FormAction.php:77
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/form.phtml:14
+msgid "Formulier"
+msgstr "Form"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/GoogleAnalytics/ClearAction.php:39
+msgid "De Google Analytics gegevens zijn verwijderd"
+msgstr "Google analytics data is removed"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/GoogleAnalytics/IndexAction.php:42
+msgid "Selecteer een profiel"
+msgstr "Select a profile"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/GoogleAnalytics/IndexAction.php:65
+msgid "Profiel opgeslagen"
+msgstr "Profile saved"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/GoogleAnalytics/IndexAction.php:82
+msgid "Google analytics"
+msgstr "Google analytics"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/LayoutTextBlock/DeleteAction.php:41
+msgid "Tekstblok verwijderd"
+msgstr "Textblock removed"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/LayoutTextBlock/EditAction.php:42
+msgid "Tekstblok aanpassen"
+msgstr "Update textblock"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/LayoutTextBlock/EditAction.php:51
+msgid "Tekstblok aanmaken"
+msgstr "Create textblock"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/LayoutTextBlock/IndexAction.php:41
+#: C:\xampp\htdocs\evolved\src\View\Admin/Model/Menu.php:161
+msgid "Tekstblokken"
+msgstr "Textblocks"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Menu/DeleteAction.php:41
+msgid "Menu item verwijderd"
+msgstr "Menu item removed"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Menu/EditAction.php:50
+msgid "Menu item aanpassen"
+msgstr "Update menu item"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Menu/EditAction.php:59
+msgid "Menu item aanmaken"
+msgstr "Create menu item"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Menu/IndexAction.php:41
+#: C:\xampp\htdocs\evolved\src\View\Admin/Model/Menu.php:151
+msgid "Menu"
+msgstr "Menu"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Page/CreateAction.php:81
+#: C:\xampp\htdocs\evolved\templates\admin/page/index.phtml:14
+msgid "Pagina aanmaken"
+msgstr "Create new page"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Page/DeleteAction.php:42
+msgid "Pagina verwijderd"
+msgstr "Page removed"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Page/EditAction.php:119
+msgid "Pagina aanpassen"
+msgstr "Update page"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Page/IndexAction.php:41
+#: C:\xampp\htdocs\evolved\src\View\Admin/Model/Menu.php:141
+msgid "Pagina's"
+msgstr "Pages"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/PageRow/GoogleMapsAction.php:54
+msgid "Google maps blok"
+msgstr "Google Maps block"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/PageRow/ImageAction.php:65
+msgid "Afbeelding blok"
+msgstr "Image block"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/PageRow/NewsArchiveAction.php:37
+#: C:\xampp\htdocs\evolved\src\Action\Admin/PageRow/RecentArticlesAction.php:56
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/recentarticles.phtml:13
+msgid "Recente berichten"
+msgstr "Recent articles"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/PageRow/PhotoAlbumAction.php:72
+msgid "Fotoalbum blok"
+msgstr "Photo album block"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/PageRow/SliderAction.php:77
+msgid "Foto silder"
+msgstr "Photo slider "
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/PageRow/TeamAction.php:36
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Team/IndexAction.php:42
+#: C:\xampp\htdocs\evolved\src\View\Admin/Model/Menu.php:226
+msgid "Teamleden"
+msgstr "Team members"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/PageRow/TextAction.php:58
+msgid "Tekst blok"
+msgstr "Text block"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/PageRow/YoutubeAction.php:54
+msgid "Youtube blok"
+msgstr "Youtube block"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/PhotoAlbum/CreateAction.php:63
+msgid "Fotoalbum aanmaken"
+msgstr "Create photo album"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/PhotoAlbum/DeleteAction.php:40
+msgid "Fotoalbum verwijderd"
+msgstr "Photo album removed"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/PhotoAlbum/EditAction.php:94
+msgid "Fotoalbum aanpassen"
+msgstr "Update photo album"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/PhotoAlbum/IndexAction.php:41
+msgid "Fotoalbums"
+msgstr "Photo albums"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/PhotoAlbum/UploadPhotosAction.php:81
+msgid "Opslag van de foto is mislukt"
+msgstr "Photo saved"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Profile/IndexAction.php:45
+msgid "Deze actie is niet beschikbaar voor admin gebruikers"
+msgstr "This action cannot be used by admin users"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Profile/IndexAction.php:68
+msgid "Incorrect wachtwoord"
+msgstr "Wrong password"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Profile/IndexAction.php:72
+#: C:\xampp\htdocs\evolved\src\Action\Admin/User/EditAction.php:77
+msgid "De wachtwoorden zijn niet gelijk"
+msgstr "The password are not equal"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Profile/IndexAction.php:97
+msgid "Profiel"
+msgstr "Profile"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Slider/CreateAction.php:63
+msgid "Slider aanmaken"
+msgstr "Create slider"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Slider/DeleteAction.php:41
+msgid "Slider verwijderd"
+msgstr "Slider removed"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Slider/DeleteSlideAction.php:41
+msgid "Slide verwijderd"
+msgstr "Slide removed"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Slider/EditSlideAction.php:69
+msgid "Slide aanpassen"
+msgstr "Update slide"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Slider/EditSlideAction.php:78
+msgid "Slide aanmaken"
+msgstr "Create slide"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Slider/IndexAction.php:41
+msgid "Sliders"
+msgstr "Sliders"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Slider/ViewAction.php:73
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/slider.phtml:14
+msgid "Slider"
+msgstr "Slider"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Team/DeleteAction.php:43
+msgid "Teamlid verwijderd"
+msgstr "Team member removed"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Team/EditAction.php:49
+msgid "Teamlid aanpassen"
+msgstr "Update team member"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/Team/EditAction.php:58
+msgid "Teamlid aanmaken"
+msgstr "Create team member"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/User/DeleteAction.php:42
+msgid "Gebruiker verwijderd"
+msgstr "User removed"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/User/EditAction.php:51
+msgid "Gebruiker aanpassen"
+msgstr "Update user"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/User/EditAction.php:60
+msgid "Gebruiker aanmaken"
+msgstr "Create user"
+
+#: C:\xampp\htdocs\evolved\src\Action\Admin/User/IndexAction.php:47
+msgid "Gebruikers"
+msgstr "Users"
+
+#: C:\xampp\htdocs\evolved\src\View\Admin/Model/Menu.php:135
+msgid "Website inhoud"
+msgstr "Website content"
+
+#: C:\xampp\htdocs\evolved\src\View\Admin/Model/Menu.php:176
+msgid "Modules"
+msgstr "Modules"
+
+#: C:\xampp\htdocs\evolved\src\View\Admin/Model/Menu.php:182
+msgid "Nieuwsberichten"
+msgstr "Articles"
+
+#: C:\xampp\htdocs\evolved\src\View\Admin/Model/Menu.php:193
+msgid "Foto sliders"
+msgstr "Photo sliders"
+
+#: C:\xampp\htdocs\evolved\src\View\Admin/Model/Menu.php:215
+msgid "Foto albums"
+msgstr "Photo albums"
+
+#: C:\xampp\htdocs\evolved\src\View\Admin/Model/Menu.php:252
+msgid "Instellingen"
+msgstr "Settings"
+
+#: C:\xampp\htdocs\evolved\src\View\Admin/Model/Menu.php:258
+msgid "Cms gebruikers"
+msgstr "Users"
+
+#: C:\xampp\htdocs\evolved\src\View\Admin/Model/Menu.php:268
+msgid "Google analytics viewer"
+msgstr "Google analytics viewer"
+
+#: C:\xampp\htdocs\evolved\src\View\Admin/Model/Menu.php:278
+msgid "Facebook"
+msgstr "Facebook"
+
+#: C:\xampp\htdocs\evolved\src\View\Admin/Model/Menu.php:288
+msgid "Twitter"
+msgstr "Twitter"
+
+#: C:\xampp\htdocs\evolved\templates\admin/auth/login.phtml:13
+msgid "Login"
+msgstr "Login"
+
+#: C:\xampp\htdocs\evolved\templates\admin/auth/login.phtml:22
+msgid "Gebruikersnaam"
+msgstr "Username"
+
+#: C:\xampp\htdocs\evolved\templates\admin/auth/login.phtml:28
+#: C:\xampp\htdocs\evolved\templates\admin/user/edit.phtml:27
+msgid "Wachtwoord"
+msgstr "Password"
+
+#: C:\xampp\htdocs\evolved\templates\admin/auth/login.phtml:35
+msgid "Inloggen"
+msgstr "Login"
+
+#: C:\xampp\htdocs\evolved\templates\admin/carousel/create.phtml:17
+#: C:\xampp\htdocs\evolved\templates\admin/carousel/edititem.phtml:19
+#: C:\xampp\htdocs\evolved\templates\admin/carousel/index.phtml:24
+#: C:\xampp\htdocs\evolved\templates\admin/carousel/view.phtml:23
+#: C:\xampp\htdocs\evolved\templates\admin/carousel/view.phtml:45
+#: C:\xampp\htdocs\evolved\templates\admin/layouttextblock/edit.phtml:17
+#: C:\xampp\htdocs\evolved\templates\admin/layouttextblock/index.phtml:24
+#: C:\xampp\htdocs\evolved\templates\admin/menu/edit.phtml:20
+#: C:\xampp\htdocs\evolved\templates\admin/menu/index.phtml:25
+#: C:\xampp\htdocs\evolved\templates\admin/page/index.phtml:24
+#: C:\xampp\htdocs\evolved\templates\admin/photoalbum/create.phtml:17
+#: C:\xampp\htdocs\evolved\templates\admin/photoalbum/edit.phtml:17
+#: C:\xampp\htdocs\evolved\templates\admin/photoalbum/index.phtml:24
+#: C:\xampp\htdocs\evolved\templates\admin/profile/index.phtml:17
+#: C:\xampp\htdocs\evolved\templates\admin/slider/create.phtml:17
+#: C:\xampp\htdocs\evolved\templates\admin/slider/editslide.phtml:19
+#: C:\xampp\htdocs\evolved\templates\admin/slider/index.phtml:24
+#: C:\xampp\htdocs\evolved\templates\admin/slider/view.phtml:23
+#: C:\xampp\htdocs\evolved\templates\admin/slider/view.phtml:45
+#: C:\xampp\htdocs\evolved\templates\admin/team/edit.phtml:17
+#: C:\xampp\htdocs\evolved\templates\admin/team/index.phtml:25
+#: C:\xampp\htdocs\evolved\templates\admin/user/edit.phtml:17
+#: C:\xampp\htdocs\evolved\templates\admin/user/index.phtml:25
+msgid "Naam"
+msgstr "Name"
+
+#: C:\xampp\htdocs\evolved\templates\admin/carousel/create.phtml:26
+#: C:\xampp\htdocs\evolved\templates\admin/carousel/edititem.phtml:43
+#: C:\xampp\htdocs\evolved\templates\admin/carousel/view.phtml:76
+#: C:\xampp\htdocs\evolved\templates\admin/googleanalytics/index.phtml:32
+#: C:\xampp\htdocs\evolved\templates\admin/layouttextblock/edit.phtml:31
+#: C:\xampp\htdocs\evolved\templates\admin/menu/edit.phtml:34
+#: C:\xampp\htdocs\evolved\templates\admin/page/create.phtml:64
+#: C:\xampp\htdocs\evolved\templates\admin/page/edit.phtml:97
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/carousel.phtml:35
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/form.phtml:35
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/googlemaps.phtml:34
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/image.phtml:49
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/photoalbum.phtml:35
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/recentarticles.phtml:34
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/slider.phtml:35
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/text.phtml:34
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/youtube.phtml:34
+#: C:\xampp\htdocs\evolved\templates\admin/photoalbum/create.phtml:26
+#: C:\xampp\htdocs\evolved\templates\admin/photoalbum/edit.phtml:63
+#: C:\xampp\htdocs\evolved\templates\admin/profile/index.phtml:46
+#: C:\xampp\htdocs\evolved\templates\admin/slider/create.phtml:26
+#: C:\xampp\htdocs\evolved\templates\admin/slider/editslide.phtml:54
+#: C:\xampp\htdocs\evolved\templates\admin/slider/view.phtml:76
+#: C:\xampp\htdocs\evolved\templates\admin/team/edit.phtml:70
+#: C:\xampp\htdocs\evolved\templates\admin/user/edit.phtml:41
+msgid "Opslaan"
+msgstr "Save"
+
+#: C:\xampp\htdocs\evolved\templates\admin/carousel/create.phtml:27
+#: C:\xampp\htdocs\evolved\templates\admin/carousel/edititem.phtml:45
+#: C:\xampp\htdocs\evolved\templates\admin/carousel/view.phtml:77
+#: C:\xampp\htdocs\evolved\templates\admin/layouttextblock/edit.phtml:32
+#: C:\xampp\htdocs\evolved\templates\admin/menu/edit.phtml:35
+#: C:\xampp\htdocs\evolved\templates\admin/page/create.phtml:65
+#: C:\xampp\htdocs\evolved\templates\admin/page/edit.phtml:99
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/carousel.phtml:36
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/form.phtml:36
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/googlemaps.phtml:35
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/image.phtml:50
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/photoalbum.phtml:36
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/recentarticles.phtml:35
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/slider.phtml:36
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/text.phtml:35
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/youtube.phtml:35
+#: C:\xampp\htdocs\evolved\templates\admin/photoalbum/create.phtml:27
+#: C:\xampp\htdocs\evolved\templates\admin/photoalbum/edit.phtml:66
+#: C:\xampp\htdocs\evolved\templates\admin/profile/index.phtml:47
+#: C:\xampp\htdocs\evolved\templates\admin/slider/create.phtml:27
+#: C:\xampp\htdocs\evolved\templates\admin/slider/editslide.phtml:56
+#: C:\xampp\htdocs\evolved\templates\admin/slider/view.phtml:77
+#: C:\xampp\htdocs\evolved\templates\admin/team/edit.phtml:71
+#: C:\xampp\htdocs\evolved\templates\admin/user/edit.phtml:42
+msgid "Annuleren"
+msgstr "Cancel"
+
+#: C:\xampp\htdocs\evolved\templates\admin/carousel/edititem.phtml:25
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/image.phtml:15
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/image.phtml:32
+#: C:\xampp\htdocs\evolved\templates\admin/team/edit.phtml:32
+msgid "Afbeelding"
+msgstr "Image"
+
+#: C:\xampp\htdocs\evolved\templates\admin/carousel/index.phtml:14
+msgid "Carousel toevoegen"
+msgstr "New Carousel"
+
+#: C:\xampp\htdocs\evolved\templates\admin/carousel/index.phtml:25
+#: C:\xampp\htdocs\evolved\templates\admin/photoalbum/index.phtml:25
+#: C:\xampp\htdocs\evolved\templates\admin/slider/index.phtml:25
+msgid "Gekoppeld aan pagina"
+msgstr "Visible on page"
+
+#: C:\xampp\htdocs\evolved\templates\admin/carousel/index.phtml:34
+#: C:\xampp\htdocs\evolved\templates\admin/form/index.phtml:34
+#: C:\xampp\htdocs\evolved\templates\admin/photoalbum/index.phtml:34
+#: C:\xampp\htdocs\evolved\templates\admin/slider/index.phtml:34
+msgid "Word gebruikt op"
+msgstr "Used on"
+
+#: C:\xampp\htdocs\evolved\templates\admin/carousel/view.phtml:17
+msgid "Carousel titel"
+msgstr "Carousel title"
+
+#: C:\xampp\htdocs\evolved\templates\admin/carousel/view.phtml:33
+msgid "Afbeelding toevoegen"
+msgstr "Add an image"
+
+#: C:\xampp\htdocs\evolved\templates\admin/dashboard/index.phtml:13
+msgid "Hoe goed scoort jouw website"
+msgstr "Website score"
+
+#: C:\xampp\htdocs\evolved\templates\admin/dashboard/index.phtml:29
+msgid "Je website is nog niet optimaal vindbaar"
+msgstr "Your website is not completely optimized"
+
+#: C:\xampp\htdocs\evolved\templates\admin/dashboard/index.phtml:31
+msgid "Je website is goed vindbaar op focuswoorden"
+msgstr "Your website should be indexed with the current focus words"
+
+#: C:\xampp\htdocs\evolved\templates\admin/dashboard/index.phtml:33
+msgid "Je website is erg goed vindbaar op focuswoorden"
+msgstr "Your website is very optimzed"
+
+#: C:\xampp\htdocs\evolved\templates\admin/dashboard/index.phtml:38
+msgid "De meeste gebruikte focuswoorden in je website"
+msgstr "Most used focus words"
+
+#: C:\xampp\htdocs\evolved\templates\admin/dashboard/index.phtml:75
+msgid "Google Analytics"
+msgstr "Google Analytics"
+
+#: C:\xampp\htdocs\evolved\templates\admin/dashboard/index.phtml:79
+msgid "Bezig met laden van de statistieken"
+msgstr "Loading data"
+
+#: C:\xampp\htdocs\evolved\templates\admin/dashboard/index.phtml:82
+msgid "De Google Analytics integratie is nog niet ingesteld."
+msgstr "Google analytics has not been setup"
+
+#: C:\xampp\htdocs\evolved\templates\admin/dashboard/index.phtml:92
+msgid "Bezoekersinformatie van de afgelopen 30 dagen"
+msgstr "Visitor information for the last 30 days"
+
+#: C:\xampp\htdocs\evolved\templates\admin/dashboard/index.phtml:97
+msgid "Paginaweergaves"
+msgstr "Pageviews"
+
+#: C:\xampp\htdocs\evolved\templates\admin/dashboard/index.phtml:100
+msgid "Aantal bezoekers"
+msgstr "Visitors"
+
+#: C:\xampp\htdocs\evolved\templates\admin/dashboard/index.phtml:103
+msgid "Geselecteerd profiel"
+msgstr "Profile"
+
+#: C:\xampp\htdocs\evolved\templates\admin/elements/account.phtml:15
+msgid "Uitloggen"
+msgstr "Logout"
+
+#: C:\xampp\htdocs\evolved\templates\admin/elements/link-form.phtml:9
+msgid "Waar moet de link naartoe verwijzen"
+msgstr "Where does the link go?"
+
+#: C:\xampp\htdocs\evolved\templates\admin/elements/link-form.phtml:13
+msgid "Pagina"
+msgstr "Page"
+
+#: C:\xampp\htdocs\evolved\templates\admin/elements/link-form.phtml:17
+msgid "Url verwijzing"
+msgstr "Url"
+
+#: C:\xampp\htdocs\evolved\templates\admin/elements/site-selector.phtml:7
+msgid "U beheert nu:"
+msgstr "You are managing:"
+
+#: C:\xampp\htdocs\evolved\templates\admin/googleanalytics/index.phtml:19
+msgid "Ingelogd als"
+msgstr "Logged in as"
+
+#: C:\xampp\htdocs\evolved\templates\admin/googleanalytics/index.phtml:33
+msgid "Weet u zeker dat u de gegevens wil verwijderen?"
+msgstr "Are you sure you want to remove this data?"
+
+#: C:\xampp\htdocs\evolved\templates\admin/googleanalytics/index.phtml:34
+msgid "Account gegevens wissen"
+msgstr "Clear account data"
+
+#: C:\xampp\htdocs\evolved\templates\admin/googleanalytics/index.phtml:44
+msgid "Account gegevens instellen"
+msgstr "Setup account"
+
+#: C:\xampp\htdocs\evolved\templates\admin/layouttextblock/edit.phtml:20
+#: C:\xampp\htdocs\evolved\templates\admin/layouttextblock/index.phtml:25
+msgid "Tag"
+msgstr "Tag"
+
+#: C:\xampp\htdocs\evolved\templates\admin/layouttextblock/edit.phtml:23
+msgid "Content"
+msgstr "Content"
+
+#: C:\xampp\htdocs\evolved\templates\admin/layouttextblock/index.phtml:14
+msgid "Tekstblok toevoegen"
+msgstr "Add a textblock"
+
+#: C:\xampp\htdocs\evolved\templates\admin/menu/edit.phtml:23
+msgid "Bovenliggend menu item"
+msgstr "Parent menu item"
+
+#: C:\xampp\htdocs\evolved\templates\admin/menu/index.phtml:14
+msgid "Menu item toevoegen"
+msgstr "Add menu item"
+
+#: C:\xampp\htdocs\evolved\templates\admin/page/create.phtml:20
+#: C:\xampp\htdocs\evolved\templates\admin/page/edit.phtml:27
+msgid "Pagina informatie"
+msgstr "Page information"
+
+#: C:\xampp\htdocs\evolved\templates\admin/page/create.phtml:26
+#: C:\xampp\htdocs\evolved\templates\admin/page/edit.phtml:33
+msgid "Titel"
+msgstr "Title"
+
+#: C:\xampp\htdocs\evolved\templates\admin/page/create.phtml:33
+#: C:\xampp\htdocs\evolved\templates\admin/page/edit.phtml:40
+msgid "SEO informatie"
+msgstr "SEO information"
+
+#: C:\xampp\htdocs\evolved\templates\admin/page/create.phtml:39
+#: C:\xampp\htdocs\evolved\templates\admin/page/edit.phtml:46
+msgid "Pagina laten opnemen in zoekmachines zoals Google"
+msgstr "Allow page to be index by Google"
+
+#: C:\xampp\htdocs\evolved\templates\admin/page/create.phtml:44
+#: C:\xampp\htdocs\evolved\templates\admin/page/edit.phtml:51
+msgid "Focuswoorden (ongeveer 3 stuks)"
+msgstr "SEO focuswords"
+
+#: C:\xampp\htdocs\evolved\templates\admin/page/create.phtml:47
+#: C:\xampp\htdocs\evolved\templates\admin/page/edit.phtml:62
+msgid "HTML pagina titel"
+msgstr "HTML page title"
+
+#: C:\xampp\htdocs\evolved\templates\admin/page/create.phtml:52
+#: C:\xampp\htdocs\evolved\templates\admin/page/edit.phtml:59
+msgid "Meta omschrijving"
+msgstr "Meta description"
+
+#: C:\xampp\htdocs\evolved\templates\admin/page/create.phtml:55
+#: C:\xampp\htdocs\evolved\templates\admin/page/edit.phtml:54
+#: C:\xampp\htdocs\evolved\templates\admin/page/index.phtml:25
+msgid "Url"
+msgstr "Url"
+
+#: C:\xampp\htdocs\evolved\templates\admin/page/edit.phtml:72
+msgid "Voeg een blok toe"
+msgstr "Add a block"
+
+#: C:\xampp\htdocs\evolved\templates\admin/page/edit.phtml:84
+msgid "Pagina inhoud"
+msgstr "Page contents"
+
+#: C:\xampp\htdocs\evolved\templates\admin/page/edit.phtml:98
+msgid "Bekijk de wijzigingen"
+msgstr "Example"
+
+#: C:\xampp\htdocs\evolved\templates\admin/page/edit.phtml:109
+msgid "Blok opties"
+msgstr "Block options"
+
+#: C:\xampp\htdocs\evolved\templates\admin/page/edit.phtml:130
+msgid "Overview modules"
+msgstr "Module overview"
+
+#: C:\xampp\htdocs\evolved\templates\admin/page/edit.phtml:153
+msgid "Voeg blok toe"
+msgstr "Add block"
+
+#: C:\xampp\htdocs\evolved\templates\admin/page/index.phtml:26
+msgid "SEO"
+msgstr "SEO"
+
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/carousel.phtml:27
+msgid "Selecteer een carousel"
+msgstr "Select a carousel"
+
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/form.phtml:27
+msgid "Selecteer een formulier"
+msgstr "Select a form"
+
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/googlemaps.phtml:13
+msgid "Google maps"
+msgstr "Google Maps"
+
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/googlemaps.phtml:26
+msgid "Voer het adres in"
+msgstr "Enter an address"
+
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/photoalbum.phtml:14
+msgid "Foto album"
+msgstr "Photo album"
+
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/photoalbum.phtml:27
+msgid "Selecteer een foto album"
+msgstr "Select a photo album"
+
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/recentarticles.phtml:26
+msgid "Aantal berichten"
+msgstr "Number of articles"
+
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/slider.phtml:27
+msgid "Selecteer een foto slider"
+msgstr "Select a photo slider"
+
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/text.phtml:13
+msgid "Tekst"
+msgstr "Text"
+
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/youtube.phtml:13
+msgid "Youtube"
+msgstr "Youtube"
+
+#: C:\xampp\htdocs\evolved\templates\admin/pagerow/youtube.phtml:26
+msgid "Voer de url van het youtube filmpje in"
+msgstr "Enter the full url of a youtube movie"
+
+#: C:\xampp\htdocs\evolved\templates\admin/photoalbum/edit.phtml:25
+msgid "Afbeeldingen toevoegen"
+msgstr "Add an image"
+
+#: C:\xampp\htdocs\evolved\templates\admin/photoalbum/index.phtml:14
+msgid "Album toevoegen"
+msgstr "Add a photo album"
+
+#: C:\xampp\htdocs\evolved\templates\admin/profile/index.phtml:22
+#: C:\xampp\htdocs\evolved\templates\admin/user/edit.phtml:22
+msgid "Email"
+msgstr "Email"
+
+#: C:\xampp\htdocs\evolved\templates\admin/profile/index.phtml:27
+msgid "Nieuw wachtwoord"
+msgstr "New password"
+
+#: C:\xampp\htdocs\evolved\templates\admin/profile/index.phtml:32
+msgid "Herhaal nieuw wachtwoord"
+msgstr "Repeat new password"
+
+#: C:\xampp\htdocs\evolved\templates\admin/profile/index.phtml:37
+msgid "Huidig wachtwoord"
+msgstr "Current password"
+
+#: C:\xampp\htdocs\evolved\templates\admin/slider/editslide.phtml:22
+#: C:\xampp\htdocs\evolved\templates\admin/team/edit.phtml:27
+msgid "Samenvatting"
+msgstr "Summary"
+
+#: C:\xampp\htdocs\evolved\templates\admin/slider/editslide.phtml:25
+msgid "Toon button"
+msgstr "Show button"
+
+#: C:\xampp\htdocs\evolved\templates\admin/slider/editslide.phtml:29
+msgid "Tekst voor de button"
+msgstr "Text on button"
+
+#: C:\xampp\htdocs\evolved\templates\admin/slider/editslide.phtml:36
+msgid "Afbeelding (advies formaat: 1920px bij 500px)"
+msgstr "Image"
+
+#: C:\xampp\htdocs\evolved\templates\admin/slider/index.phtml:14
+msgid "Slider toevoegen"
+msgstr "Add a slider"
+
+#: C:\xampp\htdocs\evolved\templates\admin/slider/view.phtml:17
+msgid "Slider titel"
+msgstr "Slider title"
+
+#: C:\xampp\htdocs\evolved\templates\admin/slider/view.phtml:33
+msgid "Slide toevoegen"
+msgstr "Add slide"
+
+#: C:\xampp\htdocs\evolved\templates\admin/team/edit.phtml:22
+msgid "Functie"
+msgstr "Function"
+
+#: C:\xampp\htdocs\evolved\templates\admin/team/edit.phtml:46
+msgid "Url voor meer informatie"
+msgstr "Url with more information"
+
+#: C:\xampp\htdocs\evolved\templates\admin/team/edit.phtml:51
+msgid "Twitter url"
+msgstr "Twitter url"
+
+#: C:\xampp\htdocs\evolved\templates\admin/team/edit.phtml:56
+msgid "Linkedin url"
+msgstr "Linkedin url"
+
+#: C:\xampp\htdocs\evolved\templates\admin/team/edit.phtml:61
+msgid "Flicker url"
+msgstr "Flicker url"
+
+#: C:\xampp\htdocs\evolved\templates\admin/team/index.phtml:14
+msgid "Teamlid toevoegen"
+msgstr "Add team member"
+
+#: C:\xampp\htdocs\evolved\templates\admin/user/edit.phtml:32
+msgid "Herhaal wachtwoord"
+msgstr "Repeat password"
+
+#: C:\xampp\htdocs\evolved\templates\admin/user/index.phtml:15
+msgid "Gebruiker toevoegen"
+msgstr "Add a user"
+
+#: C:\xampp\htdocs\evolved\templates\admin/user/index.phtml:26
+msgid "Laatste login"
+msgstr "Last login"
+
+#~ msgid "Pagina laten indexeren door zoekmachines"
+#~ msgstr "Allow page to be index by Google"

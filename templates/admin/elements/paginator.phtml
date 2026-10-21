@@ -1,0 +1,69 @@
+<?php
+/**
+ * @var \App\View\Admin\Model\View $this
+ * @var \App\Repository\Paginator $paginator
+ */
+
+if($paginator->getLastPageNr() > 1) {
+    ?>
+    <nav aria-label="Page navigation" class="text-center">
+        <ul class="pagination">
+
+            <?php if($paginator->isFirstPage()) { ?>
+                <li class="disabled">
+
+                    <span aria-hidden="true">&laquo;</span>
+
+                </li>
+            <?php } else { ?>
+                <li>
+                    <a href="?page=<?php echo $paginator->getPageNr() - 1 ?>" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            <?php } ?>
+
+
+            <?php
+            if($paginator->getPageNr() <= 5)
+            {
+                $startingPage = 1;
+                $lastPage = min($paginator->getLastPageNr(), 11);
+            }
+            else if($paginator->getPageNr() >= ($paginator->getLastPageNr() - 5))
+            {
+                $startingPage = $paginator->getLastPageNr()  - 11;
+                $lastPage = $paginator->getLastPageNr();
+            }
+            else
+            {
+                $startingPage = $paginator->getPageNr() - 5;
+                $lastPage = $paginator->getPageNr() + 5;
+            }
+            ?>
+
+            <?php for($i = $startingPage; $i <= $lastPage; $i++) { ?>
+                <li class="<?php echo $paginator->getPageNr() == $i ? 'active': '' ?>">
+                    <a href="?page=<?php echo $i ?>"><?php echo $i ?></a>
+                </li>
+            <?php } ?>
+
+
+
+            <?php if($paginator->isLastPage()) { ?>
+                <li class="disabled">
+
+                    <span aria-hidden="true">&raquo;</span>
+
+                </li>
+            <?php } else { ?>
+                <li >
+                    <a href="?page=<?php echo $paginator->getPageNr() + 1 ?>" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            <?php } ?>
+        </ul>
+    </nav>
+
+<?php } ?>

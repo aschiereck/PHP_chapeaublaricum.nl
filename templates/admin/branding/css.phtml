@@ -1,0 +1,74 @@
+<?php
+/**
+ * @var App\Service\Evolved\BrandingProfile $branding
+ */
+?>
+/* Branding colors */
+.btn-primary,
+.btn-primary.active,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:hover {background-color: <?php echo $branding->getPrimaryColor() ?>; color: <?php echo $branding->getSecondaryColor() ?>;}
+
+.text-primary,
+.text-primary.active,
+.text-primary.focus,
+.text-primary:active,
+.text-primary:focus,
+.text-primary:hover {color: <?php echo $branding->getPrimaryColor() ?>;}
+
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar,
+.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {background-color: <?php echo $branding->getPrimaryColor() ?>; filter: "alpha(opacity=100)"; -ms-filter: "alpha(opacity=100)";}
+
+.required label:after {color: <?php echo $branding->getPrimaryColor() ?>;}
+
+body.login-screen{background: url('<?php echo $branding->getBackgroundImageUrl() ?>') no-repeat center center fixed;-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;}
+
+/* Sidebar menu colors */
+#pagebuilder-wrapper .sidebar-left-outer .sidebar-left-nav-outer ul li.active a,
+#pagebuilder-wrapper .sidebar-left-outer .sidebar-left-nav-outer ul li:hover a {border-left: 4px solid #10A9E9;}
+
+.sidebar-left-nav-outer .module-slider.active a,
+.sidebar-left-nav-outer .module-slider:hover a {border-left: 4px solid #B331A2 !important;}
+.sidebar-left-nav-outer .module-form.active a,
+.sidebar-left-nav-outer .module-form:hover a {border-left: 4px solid #1B78BD !important;}
+.sidebar-left-nav-outer .module-article.active a,
+.sidebar-left-nav-outer .module-article:hover a {border-left: 4px solid #00BEBC !important;}
+.sidebar-left-nav-outer .module-photo-album.active a,
+.sidebar-left-nav-outer .module-photo-album:hover a {border-left: 4px solid #FFA700 !important;}
+.sidebar-left-nav-outer .module-project.active a,
+.sidebar-left-nav-outer .module-project:hover a {border-left: 4px solid #D64E2B !important;}
+
+/* Overview module background colors */
+#pagebuilder-wrapper .content-outer .module-slider-bg {background-color: #B331A2;}
+#pagebuilder-wrapper .content-outer .module-form-bg {background-color: #1B78BD;}
+#pagebuilder-wrapper .content-outer .module-article-bg {background-color: #00BEBC;}
+#pagebuilder-wrapper .content-outer .module-photo-album-bg {background-color: #FFA700;}
+#pagebuilder-wrapper .content-outer .module-project-bg {background-color: #D64E2B;}
+#pagebuilder-wrapper .content-outer .module-page-bg {background-color: #00A7E9;}
+
+/* Overview module block background colors */
+#overview-modules .module-slider {background-color: #B331A2;}
+#overview-modules .module-form {background-color: #1B78BD;}
+#overview-modules .module-article {background-color: #00BEBC;}
+#overview-modules .module-photo-album {background-color: #FFA700;}
+#overview-modules .module-project {background-color: #D64E2B;}
+#overview-modules .module-page {background-color: #00A7E9;}
+
+/* Grid stack module colors */
+#pagebuilder-wrapper .content-outer .content-inner .module-slider {border-left: 4px solid #B331A2;}
+#pagebuilder-wrapper .content-outer .content-inner .module-form {border-left: 4px solid #1B78BD;}
+#pagebuilder-wrapper .content-outer .content-inner .module-article {border-left: 4px solid #00BEBC;}
+#pagebuilder-wrapper .content-outer .content-inner .module-photo-album {border-left: 4px solid #FFA700;}
+#pagebuilder-wrapper .content-outer .content-inner .module-project {border-left: 4px solid #D64E2B;}
+#pagebuilder-wrapper .content-outer .content-inner .module-page {border-left: 4px solid #00A7E9;}
+
+
+
+
+
+
+
