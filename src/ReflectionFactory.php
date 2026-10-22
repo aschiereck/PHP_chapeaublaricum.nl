@@ -66,14 +66,22 @@ class ReflectionFactory implements FactoryInterface
          *   resolved to a service in the container.
          */
         return function (ReflectionParameter $parameter) use ($container, $requestedName) {
-            if (! $parameter->getClass()) {
+            $type = null;
+            $reflectionType = $parameter->getType();
+            if ($reflectionType instanceof \ReflectionNamedType && !$reflectionType->isBuiltin()) {
+                $type = $reflectionType->getName();
+            } elseif (method_exists($parameter, 'getClass')) {
+                $class = $parameter->getClass();
+                $type = $class ? $class->getName() : null;
+            }
+
+            if (! $type) {
                 throw new ServiceNotFoundException(sprintf(
                     'Cannot create "%s"; parameter "%s" has no type hint.',
                     $requestedName,
                     $parameter->getName()
                 ));
             }
-            $type = $parameter->getClass()->getName();
 
             if (! $container->has($type)) {
                 throw new ServiceNotFoundException(sprintf(

@@ -323,7 +323,7 @@ class Page extends AbstractEntity
      */
     public function getFocusWords()
     {
-        return implode(', ', explode(',', $this->focusWords));
+        return implode(', ', explode(',', (string)$this->focusWords));
     }
 
     /**
@@ -332,7 +332,7 @@ class Page extends AbstractEntity
      */
     public function setFocusWords($focusWordsAsString)
     {
-        $focusWords = explode(',', $focusWordsAsString);
+        $focusWords = explode(',', (string)$focusWordsAsString);
         $focusWords = array_map('trim', $focusWords);
         $focusWords = (string)implode(',', $focusWords);
         $this->focusWords = $focusWords;

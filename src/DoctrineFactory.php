@@ -40,7 +40,9 @@ class DoctrineFactory implements FactoryInterface
             $doctrine->setNamingStrategy(new UnderscoreNamingStrategy());
 
             // ORM mapping by Annotation
-            AnnotationRegistry::registerFile('vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/DoctrineAnnotations.php');
+            if (class_exists(AnnotationRegistry::class) && method_exists(AnnotationRegistry::class, 'registerFile') && file_exists('vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/DoctrineAnnotations.php')) {
+                AnnotationRegistry::registerFile('vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/DoctrineAnnotations.php');
+            }
             $driver = new AnnotationDriver(
                 new AnnotationReader(),
                 [

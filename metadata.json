@@ -1,0 +1,8 @@
+{
+  "name": "Bistrôt Chapeau Blaricum",
+  "description": "Website and CMS for Bistrôt Chapeau in Blaricum, featuring online reservations, seasonal menus, news, photo gallery, and management dashboard.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
