@@ -1,4 +1,5 @@
 SetEnv "APP_ENV" "production"
+DirectoryIndex index.php
 
 RewriteEngine On
 
